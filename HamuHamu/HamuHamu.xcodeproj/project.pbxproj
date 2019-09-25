@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,12 +15,16 @@
 		01CB0F2820AF02BF00280A70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01CB0F2620AF02BF00280A70 /* Main.storyboard */; };
 		01CB0F2A20AF02C000280A70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01CB0F2920AF02C000280A70 /* Assets.xcassets */; };
 		01CB0F2D20AF02C000280A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01CB0F2B20AF02C000280A70 /* LaunchScreen.storyboard */; };
+		01DF53772333D10800D84FAB /* intro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01DF53762333D10800D84FAB /* intro.gif */; };
+		01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F46889233A525800A1B4CA /* BrandCell.swift */; };
+		80598ABE616455F8DC2CF48E /* Pods_HamuHamu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		016910732309656C002A8265 /* EventSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSafariView.swift; sourceTree = "<group>"; };
 		016910762309860C002A8265 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
 		0172A3E722E8A9A800D2A67F /* EventWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWebView.swift; sourceTree = "<group>"; };
+		01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HamuHamu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CB0F1F20AF02BF00280A70 /* HamuHamu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HamuHamu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01CB0F2220AF02BF00280A70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01CB0F2420AF02BF00280A70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +32,11 @@
 		01CB0F2920AF02C000280A70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		01CB0F2C20AF02C000280A70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01CB0F2E20AF02C000280A70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01DF53762333D10800D84FAB /* intro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = intro.gif; sourceTree = "<group>"; };
+		01DF53782333D65C00D84FAB /* HamuHamu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HamuHamu.entitlements; sourceTree = "<group>"; };
+		01F46889233A525800A1B4CA /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
+		A5F46ADB61BF449F26989E61 /* Pods-HamuHamu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.release.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.release.xcconfig"; sourceTree = "<group>"; };
+		C960CED6D3A298F6BB220917 /* Pods-HamuHamu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.debug.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80598ABE616455F8DC2CF48E /* Pods_HamuHamu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,6 +65,8 @@
 			children = (
 				01CB0F2120AF02BF00280A70 /* HamuHamu */,
 				01CB0F2020AF02BF00280A70 /* Products */,
+				262E0B8D5984B0217D61DF6B /* Pods */,
+				B1E2FE57278B7FE502DA2929 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,8 +81,11 @@
 		01CB0F2120AF02BF00280A70 /* HamuHamu */ = {
 			isa = PBXGroup;
 			children = (
+				01DF53782333D65C00D84FAB /* HamuHamu.entitlements */,
+				01DF53762333D10800D84FAB /* intro.gif */,
 				01CB0F2220AF02BF00280A70 /* AppDelegate.swift */,
 				01CB0F2420AF02BF00280A70 /* ViewController.swift */,
+				01F46889233A525800A1B4CA /* BrandCell.swift */,
 				016910752309657D002A8265 /* WebView */,
 				016910762309860C002A8265 /* DeveloperInfoViewController.swift */,
 				01CB0F2620AF02BF00280A70 /* Main.storyboard */,
@@ -81,6 +96,23 @@
 			path = HamuHamu;
 			sourceTree = "<group>";
 		};
+		262E0B8D5984B0217D61DF6B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C960CED6D3A298F6BB220917 /* Pods-HamuHamu.debug.xcconfig */,
+				A5F46ADB61BF449F26989E61 /* Pods-HamuHamu.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B1E2FE57278B7FE502DA2929 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -88,9 +120,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01CB0F3120AF02C000280A70 /* Build configuration list for PBXNativeTarget "HamuHamu" */;
 			buildPhases = (
+				0C7664290CC5FEAE6382E7E2 /* [CP] Check Pods Manifest.lock */,
 				01CB0F1B20AF02BF00280A70 /* Sources */,
 				01CB0F1C20AF02BF00280A70 /* Frameworks */,
 				01CB0F1D20AF02BF00280A70 /* Resources */,
+				B33537171EFE5475F199F289 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,6 +147,11 @@
 				TargetAttributes = {
 					01CB0F1E20AF02BF00280A70 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -142,10 +181,53 @@
 				01CB0F2D20AF02C000280A70 /* LaunchScreen.storyboard in Resources */,
 				01CB0F2A20AF02C000280A70 /* Assets.xcassets in Resources */,
 				01CB0F2820AF02BF00280A70 /* Main.storyboard in Resources */,
+				01DF53772333D10800D84FAB /* intro.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0C7664290CC5FEAE6382E7E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HamuHamu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B33537171EFE5475F199F289 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HamuHamu/Pods-HamuHamu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HamuHamu/Pods-HamuHamu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HamuHamu/Pods-HamuHamu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		01CB0F1B20AF02BF00280A70 /* Sources */ = {
@@ -157,6 +239,7 @@
 				016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */,
 				0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */,
 				016910742309656C002A8265 /* EventSafariView.swift in Sources */,
+				01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,15 +381,19 @@
 		};
 		01CB0F3220AF02C000280A70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C960CED6D3A298F6BB220917 /* Pods-HamuHamu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HamuHamu/HamuHamu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -316,15 +403,19 @@
 		};
 		01CB0F3320AF02C000280A70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A5F46ADB61BF449F26989E61 /* Pods-HamuHamu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = HamuHamu/HamuHamu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

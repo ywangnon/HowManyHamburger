@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        application.registerForRemoteNotifications()
+        
         return true
     }
 
@@ -40,7 +43,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        
+        print("APNs Device Token: \(deviceTokenString)")
+    }
 
-
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("APNs registration failed: \(error)")
+    }
 }
 
