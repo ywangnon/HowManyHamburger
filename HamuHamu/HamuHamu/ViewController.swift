@@ -10,6 +10,7 @@ import UIKit
 import SafariServices
 import StoreKit
 import SwiftyGif
+import NotificationCenter
 
 class ViewController: UIViewController {
     
@@ -40,6 +41,8 @@ class ViewController: UIViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         collectionView.register(BrandCell.self, forCellWithReuseIdentifier: "brandCell")
         collectionView.backgroundColor = .white
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -168,6 +171,7 @@ extension ViewController {
         let safariViewController = SFSafariViewController(url: url)
         present(safariViewController, animated: true, completion: nil)
     }
+    
 }
 
 extension ViewController: SwiftyGifDelegate {
@@ -191,6 +195,8 @@ extension ViewController: SwiftyGifDelegate {
         print("gifDidStop")
         self.navigationController?.navigationBar.isHidden = false
         self.imageView.isHidden = true
+        CommonMethod.shared.notificationSetting()
+        
     }
 }
 
