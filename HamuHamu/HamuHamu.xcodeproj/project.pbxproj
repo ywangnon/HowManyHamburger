@@ -17,6 +17,9 @@
 		01CB0F2D20AF02C000280A70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01CB0F2B20AF02C000280A70 /* LaunchScreen.storyboard */; };
 		01E619BD233CEA1100BD1DAF /* intro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 01E619BC233CEA1100BD1DAF /* intro.gif */; };
 		01E619BF233CED6200BD1DAF /* CommonMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619BE233CED6200BD1DAF /* CommonMethod.swift */; };
+		01E619C1233E84E100BD1DAF /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619C0233E84E100BD1DAF /* SettingViewController.swift */; };
+		01E619C3233EA2F300BD1DAF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619C2233EA2F300BD1DAF /* MenuCell.swift */; };
+		01E619C5233F163E00BD1DAF /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619C4233F163E00BD1DAF /* NoticeViewController.swift */; };
 		01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F46889233A525800A1B4CA /* BrandCell.swift */; };
 		80598ABE616455F8DC2CF48E /* Pods_HamuHamu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */; };
 /* End PBXBuildFile section */
@@ -36,6 +39,9 @@
 		01DF53782333D65C00D84FAB /* HamuHamu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HamuHamu.entitlements; sourceTree = "<group>"; };
 		01E619BC233CEA1100BD1DAF /* intro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = intro.gif; sourceTree = "<group>"; };
 		01E619BE233CED6200BD1DAF /* CommonMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonMethod.swift; sourceTree = "<group>"; };
+		01E619C0233E84E100BD1DAF /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		01E619C2233EA2F300BD1DAF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		01E619C4233F163E00BD1DAF /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		01F46889233A525800A1B4CA /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
 		A5F46ADB61BF449F26989E61 /* Pods-HamuHamu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.release.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.release.xcconfig"; sourceTree = "<group>"; };
 		C960CED6D3A298F6BB220917 /* Pods-HamuHamu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.debug.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +95,9 @@
 				01CB0F2420AF02BF00280A70 /* ViewController.swift */,
 				01F46889233A525800A1B4CA /* BrandCell.swift */,
 				016910752309657D002A8265 /* WebView */,
+				01E619C0233E84E100BD1DAF /* SettingViewController.swift */,
+				01E619C2233EA2F300BD1DAF /* MenuCell.swift */,
+				01E619C4233F163E00BD1DAF /* NoticeViewController.swift */,
 				016910762309860C002A8265 /* DeveloperInfoViewController.swift */,
 				01E619BE233CED6200BD1DAF /* CommonMethod.swift */,
 				01CB0F2620AF02BF00280A70 /* Main.storyboard */,
@@ -239,7 +248,10 @@
 			files = (
 				01CB0F2520AF02BF00280A70 /* ViewController.swift in Sources */,
 				01CB0F2320AF02BF00280A70 /* AppDelegate.swift in Sources */,
+				01E619C3233EA2F300BD1DAF /* MenuCell.swift in Sources */,
 				016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */,
+				01E619C5233F163E00BD1DAF /* NoticeViewController.swift in Sources */,
+				01E619C1233E84E100BD1DAF /* SettingViewController.swift in Sources */,
 				0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */,
 				016910742309656C002A8265 /* EventSafariView.swift in Sources */,
 				01E619BF233CED6200BD1DAF /* CommonMethod.swift in Sources */,
@@ -397,7 +409,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -419,7 +431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.2.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

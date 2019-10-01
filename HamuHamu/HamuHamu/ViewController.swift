@@ -71,24 +71,35 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    override var prefersStatusBarHidden: Bool {
+        return true//navigationController?.isNavigationBarHidden == true
+    }
+
+    override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
+        return UIStatusBarAnimation.slide
     }
 }
 
 extension ViewController {
     func setViewFoundations() {
         self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.barStyle = .black
         
-        self.navigationController?.navigationBar.isHidden = true
+        print("navigation status bar:::", navigationController?.prefersStatusBarHidden)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.red
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,
+                              NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20, weight: .bold)]
+        self.navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "menu"), style: .plain, target: self, action: #selector(leftBarButtonItem(_:)))
-        self.navigationItem.rightBarButtonItem?.tintColor = .orange
+        self.navigationItem.rightBarButtonItem?.tintColor = .yellow
     }
     
     func setAddSubViews() {
-        self.view.addSubview(self.collectionView)
-        self.view.addSubview(self.imageView)
+        self.view.addSubviews([self.collectionView,
+                               self.imageView])
     }
     
     func setLayouts() {
@@ -107,6 +118,7 @@ extension ViewController {
             self.imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
         ])
+        
     }
     
     func setDelegates() {
@@ -126,20 +138,25 @@ extension ViewController {
 
 extension ViewController {
     @objc func leftBarButtonItem(_ item: UIBarButtonItem) {
-        let alert = UIAlertController()
-        let rateAction = UIAlertAction(title: "앱 평가하기", style: .default) { action in
-            SKStoreReviewController.requestReview()
-        }
-        let developerInfoAction = UIAlertAction(title: "개발자 소개", style: .default) { action in
-            let infoView = self.storyboard?.instantiateViewController(withIdentifier: "DeveloperInfo")
-            infoView?.modalTransitionStyle = .coverVertical
-            self.present(infoView!, animated: true, completion: nil)
-        }
-        let alertCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        alert.addAction(rateAction)
-        alert.addAction(developerInfoAction)
-        alert.addAction(alertCancel)
-        self.present(alert, animated: true)
+//        let alert = UIAlertController()
+//        let rateAction = UIAlertAction(title: "앱 평가하기", style: .default) { action in
+//            SKStoreReviewController.requestReview()
+//        }
+//        let developerInfoAction = UIAlertAction(title: "개발자 소개", style: .default) { action in
+//            let infoView = self.storyboard?.instantiateViewController(withIdentifier: "DeveloperInfo")
+//            infoView?.modalTransitionStyle = .coverVertical
+//            self.present(infoView!, animated: true, completion: nil)
+//        }
+//        let alertCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+//        alert.addAction(rateAction)
+//        alert.addAction(developerInfoAction)
+//        alert.addAction(alertCancel)
+//        self.present(alert, animated: true)
+        
+        let settingView = SettingViewController()
+        settingView.title = "Settings"
+        self.navigationController?.pushViewController(settingView, animated: true)
+        
     }
 }
 
@@ -185,6 +202,7 @@ extension ViewController: SwiftyGifDelegate {
 
     func gifDidStart(sender: UIImageView) {
         print("gifDidStart")
+        self.navigationController?.navigationBar.isHidden = true
     }
     
     func gifDidLoop(sender: UIImageView) {
@@ -196,7 +214,7 @@ extension ViewController: SwiftyGifDelegate {
         self.navigationController?.navigationBar.isHidden = false
         self.imageView.isHidden = true
         CommonMethod.shared.notificationSetting()
-        
+        self.collectionView.reloadData()
     }
 }
 
@@ -232,8 +250,7 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
-        print("image:::", self.brandDic[indexPath.row]["image"] as? UIImage)
-        print("name:::", self.brandDic[indexPath.row]["name"] as? String)
+        
         cell.imageView.image = self.brandDic[indexPath.row]["image"] as? UIImage
         cell.descLabel.text = self.brandDic[indexPath.row]["name"] as? String
         return cell
