@@ -11,7 +11,8 @@ enum Brand: String {
     case kfc = "https://www.kfckorea.com/promotion/promotionList/A801"
 //    case lotte = "http://www.lotteria.com/Event/Event_List.asp"
     case lotte = "http://m.lotteria.com/event/event.do"
-    case mc = "http://m.mcdonalds.co.kr/me/kor/event/event_list.do"
+//    case mc = "http://m.mcdonalds.co.kr/me/kor/event/event_list.do"
+    case mc = "http://m.mcdonalds.co.kr/kor/promotion/list.do"
 }
 
 import UIKit

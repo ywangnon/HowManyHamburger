@@ -54,6 +54,13 @@ class BrandCell: UICollectionViewCell {
         return label
     }()
     
+    var callImageView: UIImageView = {
+        let imgView = UIImageView()
+        
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
