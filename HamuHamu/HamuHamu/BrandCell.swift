@@ -54,11 +54,16 @@ class BrandCell: UICollectionViewCell {
         return label
     }()
     
-    var callImageView: UIImageView = {
-        let imgView = UIImageView()
-        
-        imgView.translatesAutoresizingMaskIntoConstraints = false
-        return imgView
+    var eventButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    var callButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     override init(frame: CGRect) {
@@ -80,11 +85,13 @@ extension BrandCell {
     
     func setAddSubViews() {
         self.addSubview(self.coverView)
-        self.coverView.addSubview(self.imageCoverView)
-        self.coverView.addSubview(self.descCoverView)
-        self.coverView.addSubview(self.lineView)
+        self.coverView.addSubviews([self.imageCoverView,
+                                    self.descCoverView,
+                                    self.lineView])
         self.imageCoverView.addSubview(self.imageView)
         self.descCoverView.addSubview(self.descLabel)
+        self.addSubviews([self.eventButton,
+                          self.callButton])
     }
     
     func setLayouts() {
@@ -128,6 +135,20 @@ extension BrandCell {
             self.descLabel.bottomAnchor.constraint(equalTo: self.descCoverView.bottomAnchor),
             self.descLabel.leadingAnchor.constraint(equalTo: self.descCoverView.leadingAnchor),
             self.descLabel.trailingAnchor.constraint(equalTo: self.descCoverView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.eventButton.topAnchor.constraint(equalTo: self.imageCoverView.topAnchor),
+            self.eventButton.bottomAnchor.constraint(equalTo: self.imageCoverView.bottomAnchor),
+            self.eventButton.leadingAnchor.constraint(equalTo: self.imageCoverView.leadingAnchor),
+            self.eventButton.trailingAnchor.constraint(equalTo: self.imageCoverView.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.callButton.topAnchor.constraint(equalTo: self.descCoverView.topAnchor),
+            self.callButton.bottomAnchor.constraint(equalTo: self.descCoverView.bottomAnchor),
+            self.callButton.leadingAnchor.constraint(equalTo: self.descCoverView.leadingAnchor),
+            self.callButton.trailingAnchor.constraint(equalTo: self.descCoverView.trailingAnchor)
         ])
     }
     

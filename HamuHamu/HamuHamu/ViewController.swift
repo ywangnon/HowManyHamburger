@@ -138,21 +138,6 @@ extension ViewController {
 
 extension ViewController {
     @objc func leftBarButtonItem(_ item: UIBarButtonItem) {
-//        let alert = UIAlertController()
-//        let rateAction = UIAlertAction(title: "앱 평가하기", style: .default) { action in
-//            SKStoreReviewController.requestReview()
-//        }
-//        let developerInfoAction = UIAlertAction(title: "개발자 소개", style: .default) { action in
-//            let infoView = self.storyboard?.instantiateViewController(withIdentifier: "DeveloperInfo")
-//            infoView?.modalTransitionStyle = .coverVertical
-//            self.present(infoView!, animated: true, completion: nil)
-//        }
-//        let alertCancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-//        alert.addAction(rateAction)
-//        alert.addAction(developerInfoAction)
-//        alert.addAction(alertCancel)
-//        self.present(alert, animated: true)
-        
         let settingView = SettingViewController()
         settingView.title = "Settings"
         self.navigationController?.pushViewController(settingView, animated: true)
@@ -250,9 +235,10 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "brandCell", for: indexPath) as! BrandCell
-        
         cell.imageView.image = self.brandDic[indexPath.row]["image"] as? UIImage
         cell.descLabel.text = self.brandDic[indexPath.row]["name"] as? String
+        cell.eventButton.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
+        cell.callButton.addTarget(self, action: <#T##Selector#>, for: .touchUpInside)
         return cell
     }
     
