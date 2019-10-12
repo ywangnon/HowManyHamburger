@@ -9,6 +9,9 @@
 import UIKit
 
 class BrandCell: UICollectionViewCell {
+    var eventAction: (()->Void)?
+    var callAction: (()->Void)?
+    
     var coverView: UIView = {
         let view = UIView()
         view.layer.borderWidth = 10
@@ -28,6 +31,15 @@ class BrandCell: UICollectionViewCell {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
+    }()
+    
+    var eventLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Event Page"
+        label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var lineView: UIView = {
@@ -71,10 +83,15 @@ class BrandCell: UICollectionViewCell {
         
         self.setAddSubViews()
         self.setLayouts()
+        self.setAddTargets()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
+        self.setAddSubViews()
+        self.setLayouts()
+        self.setAddTargets()
     }
 }
 
@@ -88,7 +105,8 @@ extension BrandCell {
         self.coverView.addSubviews([self.imageCoverView,
                                     self.descCoverView,
                                     self.lineView])
-        self.imageCoverView.addSubview(self.imageView)
+        self.imageCoverView.addSubviews([self.imageView,
+                                         self.eventLabel])
         self.descCoverView.addSubview(self.descLabel)
         self.addSubviews([self.eventButton,
                           self.callButton])
@@ -131,6 +149,13 @@ extension BrandCell {
         ])
         
         NSLayoutConstraint.activate([
+            self.eventLabel.leadingAnchor.constraint(equalTo: self.imageView.leadingAnchor),
+            self.eventLabel.trailingAnchor.constraint(equalTo: self.imageView.trailingAnchor),
+            self.eventLabel.bottomAnchor.constraint(equalTo: self.imageView.bottomAnchor),
+            self.eventLabel.heightAnchor.constraint(equalTo: self.imageView.heightAnchor, multiplier: 1/5)
+        ])
+        
+        NSLayoutConstraint.activate([
             self.descLabel.topAnchor.constraint(equalTo: self.descCoverView.topAnchor),
             self.descLabel.bottomAnchor.constraint(equalTo: self.descCoverView.bottomAnchor),
             self.descLabel.leadingAnchor.constraint(equalTo: self.descCoverView.leadingAnchor),
@@ -157,10 +182,23 @@ extension BrandCell {
     }
     
     func setAddTargets() {
-        
+        self.eventButton.addTarget(self, action: #selector(event(_:)), for: .touchUpInside)
+        self.callButton.addTarget(self, action: #selector(call(_:)), for: .touchUpInside)
     }
     
     func setGestures() {
         
+    }
+}
+
+extension BrandCell {
+    @objc func event(_ sender: UIButton) {
+        print("event")
+        self.eventAction?()
+    }
+    
+    @objc func call(_ sender: UIButton) {
+        print("call")
+        self.callAction?()
     }
 }

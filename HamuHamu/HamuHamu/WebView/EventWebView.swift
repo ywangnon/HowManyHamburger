@@ -9,10 +9,22 @@
 enum Brand: String {
     case king = "https://www.burgerking.co.kr/m/event?esq=614&online=N"
     case kfc = "https://www.kfckorea.com/promotion/promotionList/A801"
-//    case lotte = "http://www.lotteria.com/Event/Event_List.asp"
     case lotte = "http://m.lotteria.com/event/event.do"
-//    case mc = "http://m.mcdonalds.co.kr/me/kor/event/event_list.do"
     case mc = "http://m.mcdonalds.co.kr/kor/promotion/list.do"
+}
+
+enum BrandYoubute: String {
+    case king = "https://m.youtube.com/channel/UCEKRI0fipK4LEgV98nI2CQA"
+    case kfc = "https://www.youtube.com/user/KFCColonelSanders"
+    case lotte = "https://m.youtube.com/user/lotteriakorea"
+    case mc = "https://m.youtube.com/user/McDonaldsKor"
+}
+
+enum BrandFaceBook: String {
+    case king = "https://m.facebook.com/burgerking/"
+    case kfc = "https://m.facebook.com/KFC.KOR/"
+    case lotte = "https://m.facebook.com/Lotteria/"
+    case mc = "https://m.facebook.com/McDonaldsKorea/?brand_redir=50245567013"
 }
 
 import UIKit
