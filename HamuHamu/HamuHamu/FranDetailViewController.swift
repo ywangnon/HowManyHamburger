@@ -14,6 +14,14 @@ class FranDetailViewController: UIViewController {
     var facebookURL: String?
     var youtubeURL: String?
     var eventURL: String?
+    var brandImgs: [UIImage]?
+    
+    var backgroundImgView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.contentMode = .scaleAspectFit
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
+    }()
     
     var logoImageView: UIImageView = {
         let imgView = UIImageView()
@@ -30,7 +38,7 @@ class FranDetailViewController: UIViewController {
 
     var callButton: UIButton = {
         let button = UIButton()
-//        button.backgroundColor = .green
+        button.backgroundColor = .green
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
@@ -43,12 +51,12 @@ class FranDetailViewController: UIViewController {
     
     var facebookButton: UIButton = {
         let button = UIButton()
-//        button.backgroundColor = .blue
+        button.backgroundColor = .blue
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
         button.setTitle("ⓕ facebook", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -56,12 +64,12 @@ class FranDetailViewController: UIViewController {
     
     var youtubeButton: UIButton = {
         let button = UIButton()
-//        button.backgroundColor = .red
+        button.backgroundColor = .red
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
         button.setTitle("▶︎ youtube", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -72,7 +80,7 @@ class FranDetailViewController: UIViewController {
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
-        button.setTitle("할인 이벤트 페이지", for: .normal)
+        button.setTitle("promotion page", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -87,6 +95,7 @@ class FranDetailViewController: UIViewController {
         self.setAddSubViews()
         self.setLayouts()
         self.setAddTargets()
+        self.backgroundIMGSetting()
     }
     
 
@@ -111,7 +120,8 @@ extension FranDetailViewController {
     }
     
     func setAddSubViews() {
-        self.view.addSubviews([self.logoImageView,
+        self.view.addSubviews([self.backgroundImgView,
+                               self.logoImageView,
                                self.buttonsView,
                                self.eventWebViewButton])
         self.buttonsView.addSubviews([self.callButton,
@@ -121,6 +131,13 @@ extension FranDetailViewController {
     
     func setLayouts() {
         let safeArea = self.view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            self.backgroundImgView.topAnchor.constraint(equalTo: self.eventWebViewButton.bottomAnchor),
+            self.backgroundImgView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            self.backgroundImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.backgroundImgView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
         
         NSLayoutConstraint.activate([
             self.logoImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
@@ -215,6 +232,16 @@ extension FranDetailViewController {
             let url = URL(string: stringURL) {
             let safariViewController = SFSafariViewController(url: url)
             self.present(safariViewController, animated: true, completion: nil)
+        }
+    }
+}
+
+extension FranDetailViewController {
+    func backgroundIMGSetting() {
+        if let imgs:[UIImage] = self.brandImgs {
+            self.backgroundImgView.animationImages = imgs
+            self.backgroundImgView.animationDuration = 10
+            self.backgroundImgView.startAnimating()
         }
     }
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		013263FF2352BB6F00D82169 /* BrandImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013263FE2352BB6F00D82169 /* BrandImageCell.swift */; };
+		0132643F235316FD00D82169 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132643E235316FD00D82169 /* CalorieViewController.swift */; };
+		0132644123531C3600D82169 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644023531C3600D82169 /* DBModel.swift */; };
+		01326443235321AE00D82169 /* CalorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01326442235321AE00D82169 /* CalorieCell.swift */; };
+		0132644523534DF500D82169 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644423534DF500D82169 /* File.swift */; };
+		0132644723536AA400D82169 /* CalorieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644623536AA400D82169 /* CalorieDetailViewController.swift */; };
 		016910742309656C002A8265 /* EventSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016910732309656C002A8265 /* EventSafariView.swift */; };
 		016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016910762309860C002A8265 /* DeveloperInfoViewController.swift */; };
 		016AC0512348F66500D853A4 /* FranchiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016AC0502348F66500D853A4 /* FranchiseCell.swift */; };
@@ -29,6 +35,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		013263FE2352BB6F00D82169 /* BrandImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandImageCell.swift; sourceTree = "<group>"; };
+		0132643E235316FD00D82169 /* CalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieViewController.swift; sourceTree = "<group>"; };
+		0132644023531C3600D82169 /* DBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
+		01326442235321AE00D82169 /* CalorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCell.swift; sourceTree = "<group>"; };
+		0132644423534DF500D82169 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		0132644623536AA400D82169 /* CalorieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieDetailViewController.swift; sourceTree = "<group>"; };
 		016910732309656C002A8265 /* EventSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSafariView.swift; sourceTree = "<group>"; };
 		016910762309860C002A8265 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
 		016AC0502348F66500D853A4 /* FranchiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseCell.swift; sourceTree = "<group>"; };
@@ -104,16 +116,22 @@
 				01E619BC233CEA1100BD1DAF /* intro.gif */,
 				01CB0F2220AF02BF00280A70 /* AppDelegate.swift */,
 				01CB0F2420AF02BF00280A70 /* ViewController.swift */,
+				0132643E235316FD00D82169 /* CalorieViewController.swift */,
+				01326442235321AE00D82169 /* CalorieCell.swift */,
+				013263FE2352BB6F00D82169 /* BrandImageCell.swift */,
 				0199022F2350E1C8008BC24D /* HamburgerFranCell.swift */,
 				016AC0502348F66500D853A4 /* FranchiseCell.swift */,
 				01F46889233A525800A1B4CA /* BrandCell.swift */,
 				019902312350F20E008BC24D /* FranDetailViewController.swift */,
+				0132644623536AA400D82169 /* CalorieDetailViewController.swift */,
 				016910752309657D002A8265 /* WebView */,
 				01E619C0233E84E100BD1DAF /* SettingViewController.swift */,
 				01E619C2233EA2F300BD1DAF /* MenuCell.swift */,
 				01E619C4233F163E00BD1DAF /* NoticeViewController.swift */,
 				016910762309860C002A8265 /* DeveloperInfoViewController.swift */,
 				01E619BE233CED6200BD1DAF /* CommonMethod.swift */,
+				0132644023531C3600D82169 /* DBModel.swift */,
+				0132644423534DF500D82169 /* File.swift */,
 				019902492351F047008BC24D /* File.strings */,
 				01CB0F2620AF02BF00280A70 /* Main.storyboard */,
 				01CB0F2920AF02C000280A70 /* Assets.xcassets */,
@@ -268,14 +286,20 @@
 				019902302350E1C8008BC24D /* HamburgerFranCell.swift in Sources */,
 				019902322350F20E008BC24D /* FranDetailViewController.swift in Sources */,
 				01E619C3233EA2F300BD1DAF /* MenuCell.swift in Sources */,
+				0132644723536AA400D82169 /* CalorieDetailViewController.swift in Sources */,
+				013263FF2352BB6F00D82169 /* BrandImageCell.swift in Sources */,
 				016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */,
+				0132644523534DF500D82169 /* File.swift in Sources */,
 				01E619C5233F163E00BD1DAF /* NoticeViewController.swift in Sources */,
 				01E619C1233E84E100BD1DAF /* SettingViewController.swift in Sources */,
 				0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */,
+				01326443235321AE00D82169 /* CalorieCell.swift in Sources */,
+				0132643F235316FD00D82169 /* CalorieViewController.swift in Sources */,
 				016910742309656C002A8265 /* EventSafariView.swift in Sources */,
 				016AC0512348F66500D853A4 /* FranchiseCell.swift in Sources */,
 				01E619BF233CED6200BD1DAF /* CommonMethod.swift in Sources */,
 				01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */,
+				0132644123531C3600D82169 /* DBModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,14 +459,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HamuHamu/HamuHamu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -457,14 +481,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = HamuHamu/HamuHamu.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.1;
+				MARKETING_VERSION = 1.3.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yoo.HamuHamu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

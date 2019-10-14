@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     let brandDic = [["name":"KFC",
 //                     "name":"KFC\n\n추천메뉴\n\n징거버거세트, 타워버거박스\n\n☏ 전화",
                      "image":UIImage(named: "KFC")!,
+                     "images":[UIImage(named: "KFC1"), UIImage(named: "KFC2"), UIImage(named: "KFC3")],
                      "minimum":12000,
                      "call":"1599-8484",
                      "url":Brand.kfc.rawValue,
@@ -30,6 +31,7 @@ class ViewController: UIViewController {
                     ["name":"McDonal",
 //                     "name":"McDonal's\n\n추천메뉴\n\n더블불고기버거, 1955버거\n\n☏ 전화",
                      "image":UIImage(named: "Mcdonalds")!,
+                     "images":[UIImage(named: "Mc1"), UIImage(named: "Mc2"), UIImage(named: "Mc3")],
                      "minimum":10000,
                      "call":"1600-5252",
                      "url":Brand.mc.rawValue,
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
                     ["name":"BurgerKing",
 //                     "name":"BurgerKing\n\n추천메뉴\n\n콰트로치즈와퍼, 와퍼세트\n\n☏ 전화",
                      "image":UIImage(named: "burger-king-logo-png-burger-king-logo-vector-293")!,
+                     "images":[UIImage(named: "King1"), UIImage(named: "King2"), UIImage(named: "King3")],
                      "minimum":11000,
                      "call":"1599-0505",
                      "url":Brand.king.rawValue,
@@ -46,6 +49,7 @@ class ViewController: UIViewController {
                     ["name":"Lotteria",
 //                     "name":"Lotteria\n\n추천메뉴\n\n데리버거, 새우버거, 불고기버거\n\n☏ 전화",
                      "image":UIImage(named: "logo-lotteria")!,
+                     "images":[UIImage(named: "Ria1"), UIImage(named: "Ria2"), UIImage(named: "Ria3")],
                      "minimum":11000,
                      "call":"1600-9999",
                      "url":Brand.lotte.rawValue,
@@ -67,6 +71,8 @@ class ViewController: UIViewController {
         return tableView
     }()
     
+    var tabbarController: UITabBarController!
+    
 //    var collectionView: UICollectionView = {
 //        let flowLayout = UICollectionViewFlowLayout()
 //        flowLayout.scrollDirection = .horizontal
@@ -81,6 +87,12 @@ class ViewController: UIViewController {
 //        collectionView.translatesAutoresizingMaskIntoConstraints = false
 //        return collectionView
 //    }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        self.createTabBarController()
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -180,6 +192,22 @@ extension ViewController {
 }
 
 extension ViewController {
+    func createTabBarController() {
+        self.tabbarController = UITabBarController()
+        self.tabbarController.tabBar.barStyle = .blackOpaque
+        
+        let firstViewController = UIViewController()
+        firstViewController.title = "프랜차이즈"
+        
+        let secondViewController = CalorieViewController()
+        secondViewController.title = "칼로리 계산"
+        
+        self.tabbarController.viewControllers = [firstViewController, secondViewController].map{UINavigationController(rootViewController: $0)}
+        self.view.addSubview(self.tabbarController.view)
+    }
+}
+
+extension ViewController {
     @objc func leftBarButtonItem(_ item: UIBarButtonItem) {
         let settingView = SettingViewController()
         settingView.title = "Settings".localized
@@ -266,7 +294,6 @@ extension ViewController: UITableViewDataSource {
         } else {
             cell.logoImgView.image = self.brandDic[indexPath.row]["image"] as? UIImage
             cell.nameLabel.text = self.brandDic[indexPath.row]["name"] as? String
-            print(self.brandDic[indexPath.row]["name"] as? String)
         }
         return cell
     }
@@ -299,6 +326,7 @@ extension ViewController: UITableViewDelegate {
         detailView.callNumber = self.brandDic[indexPath.row]["call"] as? String
         detailView.facebookURL = self.brandDic[indexPath.row]["facebook"] as? String
         detailView.youtubeURL = self.brandDic[indexPath.row]["youtube"] as? String
+        detailView.brandImgs = self.brandDic[indexPath.row]["images"] as? [UIImage]
         self.navigationController?.pushViewController(detailView, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
