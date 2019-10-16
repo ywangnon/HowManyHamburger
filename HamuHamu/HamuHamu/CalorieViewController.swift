@@ -153,8 +153,12 @@ extension CalorieViewController {
     @objc func leftBarButtonItem(_ item: UIBarButtonItem) {
         let alrertController = UIAlertController(title: "프랜차이즈", message: "프랜차이즈를 선택하세요.", preferredStyle: .actionSheet)
         let mcdonaldsAction = UIAlertAction(title: "맥도날드", style: .default) { (action) in
-            
+            let detailView = CalorieDetailViewController()
+            detailView.title = "맥도날드"
+            detailView.calorieArray = McdonaldsCalorie
+            self.navigationController?.pushViewController(detailView, animated: true)
         }
+        
         let kfcAction = UIAlertAction(title: "KFC", style: .default) { (action) in
             
         }
@@ -176,3 +180,9 @@ extension CalorieViewController {
         self.present(alrertController, animated: true, completion: nil)
     }
 }
+
+let McdonaldsCalorie = [["name":"맥치킨",
+                         "calorie":477],
+                        ["name":"맥치킨모짜렐라",
+                         "calorie":687]]
+

@@ -12,11 +12,12 @@ class CalorieDetailViewController: UIViewController {
 
     var tableView: UITableView = {
         let tableview = UITableView()
+        tableview.register(CalorieCell.self, forCellReuseIdentifier: "calorieCell")
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
     }()
     
-    var calorieArray:[[String : Any]] = [[:]]
+    var calorieArray:[[String : Any]]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,11 +66,13 @@ extension CalorieDetailViewController: UITableViewDelegate {
 
 extension CalorieDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calorieArray.count
+        return calorieArray?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as! CalorieCell
+        cell.nameLabel.text = ""
+        cell.calorieLabel.text = ""
         return cell
     }
     

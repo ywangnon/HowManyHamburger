@@ -11,7 +11,7 @@
 		0132643F235316FD00D82169 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132643E235316FD00D82169 /* CalorieViewController.swift */; };
 		0132644123531C3600D82169 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644023531C3600D82169 /* DBModel.swift */; };
 		01326443235321AE00D82169 /* CalorieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01326442235321AE00D82169 /* CalorieCell.swift */; };
-		0132644523534DF500D82169 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644423534DF500D82169 /* File.swift */; };
+		0132644523534DF500D82169 /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644423534DF500D82169 /* Calories.swift */; };
 		0132644723536AA400D82169 /* CalorieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644623536AA400D82169 /* CalorieDetailViewController.swift */; };
 		016910742309656C002A8265 /* EventSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016910732309656C002A8265 /* EventSafariView.swift */; };
 		016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016910762309860C002A8265 /* DeveloperInfoViewController.swift */; };
@@ -39,7 +39,7 @@
 		0132643E235316FD00D82169 /* CalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieViewController.swift; sourceTree = "<group>"; };
 		0132644023531C3600D82169 /* DBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
 		01326442235321AE00D82169 /* CalorieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieCell.swift; sourceTree = "<group>"; };
-		0132644423534DF500D82169 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		0132644423534DF500D82169 /* Calories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
 		0132644623536AA400D82169 /* CalorieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieDetailViewController.swift; sourceTree = "<group>"; };
 		016910732309656C002A8265 /* EventSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventSafariView.swift; sourceTree = "<group>"; };
 		016910762309860C002A8265 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 				016910762309860C002A8265 /* DeveloperInfoViewController.swift */,
 				01E619BE233CED6200BD1DAF /* CommonMethod.swift */,
 				0132644023531C3600D82169 /* DBModel.swift */,
-				0132644423534DF500D82169 /* File.swift */,
+				0132644423534DF500D82169 /* Calories.swift */,
 				019902492351F047008BC24D /* File.strings */,
 				01CB0F2620AF02BF00280A70 /* Main.storyboard */,
 				01CB0F2920AF02C000280A70 /* Assets.xcassets */,
@@ -289,7 +289,7 @@
 				0132644723536AA400D82169 /* CalorieDetailViewController.swift in Sources */,
 				013263FF2352BB6F00D82169 /* BrandImageCell.swift in Sources */,
 				016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */,
-				0132644523534DF500D82169 /* File.swift in Sources */,
+				0132644523534DF500D82169 /* Calories.swift in Sources */,
 				01E619C5233F163E00BD1DAF /* NoticeViewController.swift in Sources */,
 				01E619C1233E84E100BD1DAF /* SettingViewController.swift in Sources */,
 				0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */,
