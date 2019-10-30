@@ -15,6 +15,13 @@ class HamburgerCalorie: Object {
     var name: String = ""
     var calorie: Int = 0
     
+    required convenience init(_ brand: String, _ name: String, _ calorie: Int) {
+        self.init()
+        self.brand = brand
+        self.name = name
+        self.calorie = calorie
+    }
+    
     override static func primaryKey() -> String? {
       return "name"
     }

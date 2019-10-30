@@ -31,6 +31,8 @@ class CalorieViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.setResult()
+        self.sumCalorie()
+        self.view.setNeedsLayout()
     }
     
     override func viewDidLoad() {
@@ -44,7 +46,6 @@ class CalorieViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.sumCalorie()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -96,6 +97,7 @@ extension CalorieViewController {
     
     func setDelegates() {
         self.tableview.delegate = self
+        self.tableview.dataSource = self
     }
     
     func setAddTargets() {
@@ -117,6 +119,8 @@ extension CalorieViewController {
         } catch let error {
             print(error)
         }
+        print("object", self.calorieObjects)
+        self.tableview.reloadData()
     }
     
     func sumCalorie() {
@@ -124,6 +128,8 @@ extension CalorieViewController {
             var total = 0
             for object in objects {
                 total += object.calorie
+                print("calorie:::", object.calorie)
+                print("sum:::", total)
             }
             self.totalLabel.text = "전체 칼로리: \(total) kcal"
         }
@@ -141,7 +147,11 @@ extension CalorieViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as! CalorieCell
+        print("before:::", self.calorieObjects?[indexPath.row])
         if let calorie = self.calorieObjects?[indexPath.row] {
+            print("cell calorie::::::",calorie)
+            print("name:::", calorie.name)
+            print("cal:::", calorie.calorie)
             cell.nameLabel.text = calorie.name
             cell.calorieLabel.text = "\(calorie.calorie) kcal"
         }
@@ -180,9 +190,3 @@ extension CalorieViewController {
         self.present(alrertController, animated: true, completion: nil)
     }
 }
-
-let McdonaldsCalorie = [["name":"맥치킨",
-                         "calorie":477],
-                        ["name":"맥치킨모짜렐라",
-                         "calorie":687]]
-

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CalorieDetailViewController: UIViewController {
 
@@ -17,18 +18,29 @@ class CalorieDetailViewController: UIViewController {
         return tableview
     }()
     
-    var calorieArray:[[String : Any]]?
+    var calorieArray:[[String : Any]] = [] {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.setViewFoundations()
+        self.setAddSubViews()
+        self.setLayouts()
+        self.setDelegates()
         // Do any additional setup after loading the view.
     }
 }
 
 extension CalorieDetailViewController {
     func setViewFoundations() {
+        self.view.backgroundColor = .white
         
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationController?.navigationBar.tintColor = .white
     }
     
     func setAddSubViews() {
@@ -61,18 +73,33 @@ extension CalorieDetailViewController {
 }
 
 extension CalorieDetailViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        do {
+            let realm = try Realm()
+            
+            let calorie = HamburgerCalorie("Macdonalds",
+                                           self.calorieArray[indexPath.row]["name"] as! String,
+                                           self.calorieArray[indexPath.row]["calorie"] as! Int)
+            
+            try realm.write {
+                realm.add(calorie, update: .modified)
+            }
+        } catch let error {
+            print(error)
+        }
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension CalorieDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calorieArray?.count ?? 0
+        return calorieArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as! CalorieCell
-        cell.nameLabel.text = ""
-        cell.calorieLabel.text = ""
+        cell.nameLabel.text = self.calorieArray[indexPath.row]["name"] as? String
+        cell.calorieLabel.text = "\(self.calorieArray[indexPath.row]["calorie"] as! Int) cal"
         return cell
     }
     

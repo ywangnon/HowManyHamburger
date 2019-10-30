@@ -12,12 +12,16 @@ class CalorieCell: UITableViewCell {
 
     var nameLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     var calorieLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -26,8 +30,6 @@ class CalorieCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        self.setAddSubViews()
-        self.setLayouts()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,7 +37,18 @@ class CalorieCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        self.setAddSubViews()
+        self.setLayouts()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 }
 
 extension CalorieCell {
