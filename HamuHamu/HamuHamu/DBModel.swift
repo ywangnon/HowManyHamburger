@@ -23,6 +23,6 @@ class HamburgerCalorie: Object {
     }
     
     override static func primaryKey() -> String? {
-      return "name"
+      return "id"
     }
 }

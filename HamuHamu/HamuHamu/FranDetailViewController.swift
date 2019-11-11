@@ -14,13 +14,24 @@ class FranDetailViewController: UIViewController {
     var facebookURL: String?
     var youtubeURL: String?
     var eventURL: String?
+    var brandImage: UIImage?
     var brandImgs: [UIImage]?
+    var brandName: String?
     
     var backgroundImgView: UIImageView = {
         let imgView = UIImageView()
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = .scaleToFill
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
+    }()
+    
+    var brandNameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 40, weight: .bold)
+        label.textColor = .yellow
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     var logoImageView: UIImageView = {
@@ -38,11 +49,9 @@ class FranDetailViewController: UIViewController {
 
     var callButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .green
-        button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
-        button.setTitle("☏ call", for: .normal)
+        button.setTitle("☏", for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -51,11 +60,9 @@ class FranDetailViewController: UIViewController {
     
     var facebookButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .blue
-        button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
-        button.setTitle("ⓕ facebook", for: .normal)
+        button.setTitle("ⓕ", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -64,11 +71,9 @@ class FranDetailViewController: UIViewController {
     
     var youtubeButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .red
-        button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
-        button.setTitle("▶︎ youtube", for: .normal)
+        button.setTitle("▶︎", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .bold)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +96,7 @@ class FranDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setNavigationTitle()
         self.setViewFoundations()
         self.setAddSubViews()
         self.setLayouts()
@@ -112,18 +118,36 @@ class FranDetailViewController: UIViewController {
 }
 
 extension FranDetailViewController {
+    func setNavigationTitle() {
+        let height = self.navigationController?.navigationBar.frame.height
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        
+        let titleImgView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        titleImgView.image = self.brandImage
+        titleImgView.contentMode = .scaleAspectFit
+        
+        self.navigationItem.titleView = titleView
+        titleView.addSubview(titleImgView)
+        titleImgView.center = titleView.center
+        
+        self.brandNameLabel.text = self.brandName
+        // titleImageView를 직접 titleView에 넣으면 문제가 생긴다.
+    }
+    
     func setViewFoundations() {
         self.view.backgroundColor = .white
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .yellow
     }
     
     func setAddSubViews() {
         self.view.addSubviews([self.backgroundImgView,
-                               self.logoImageView,
+//                               self.logoImageView,
                                self.buttonsView,
-                               self.eventWebViewButton])
+                               self.eventWebViewButton,
+                               self.brandNameLabel])
         self.buttonsView.addSubviews([self.callButton,
                                       self.facebookButton,
                                       self.youtubeButton])
@@ -133,45 +157,52 @@ extension FranDetailViewController {
         let safeArea = self.view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.backgroundImgView.topAnchor.constraint(equalTo: self.eventWebViewButton.bottomAnchor),
-            self.backgroundImgView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            self.backgroundImgView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             self.backgroundImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            self.backgroundImgView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+            self.backgroundImgView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            self.backgroundImgView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 0.25)
         ])
         
         NSLayoutConstraint.activate([
-            self.logoImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
-            self.logoImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            self.logoImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.logoImageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1/7)
+            self.brandNameLabel.leadingAnchor.constraint(equalTo: self.backgroundImgView.leadingAnchor, constant: 20),
+            self.brandNameLabel.bottomAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor, constant: -10)
         ])
         
+        
+//
+//        NSLayoutConstraint.activate([
+//            self.logoImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
+//            self.logoImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+//            self.logoImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+//            self.logoImageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1/7)
+//        ])
+//
         NSLayoutConstraint.activate([
-            self.buttonsView.topAnchor.constraint(equalTo: self.logoImageView.bottomAnchor),
+            self.buttonsView.topAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor, constant: 5),
             self.buttonsView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             self.buttonsView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             self.buttonsView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1/8)
         ])
         
         NSLayoutConstraint.activate([
-            self.callButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor, multiplier: 0.5),
-            self.callButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 0.9 * 0.33),
+            self.callButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
+            self.callButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
             self.callButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
-            self.callButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor, constant: (safeArea.layoutFrame.width - 2) * 0.1 * 0.5)
+            self.callButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.facebookButton.leadingAnchor.constraint(equalTo: self.callButton.trailingAnchor, constant: 1),
-            self.facebookButton.topAnchor.constraint(equalTo: self.callButton.topAnchor),
-            self.facebookButton.bottomAnchor.constraint(equalTo: self.callButton.bottomAnchor),
-            self.facebookButton.widthAnchor.constraint(equalTo: self.callButton.widthAnchor)
+            self.facebookButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
+            self.facebookButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
+            self.facebookButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
+            self.facebookButton.leadingAnchor.constraint(equalTo: self.callButton.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.youtubeButton.leadingAnchor.constraint(equalTo: self.facebookButton.trailingAnchor, constant: 1),
-            self.youtubeButton.topAnchor.constraint(equalTo: self.callButton.topAnchor),
-            self.youtubeButton.bottomAnchor.constraint(equalTo: self.callButton.bottomAnchor),
-            self.youtubeButton.widthAnchor.constraint(equalTo: self.callButton.widthAnchor)
+            self.youtubeButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
+            self.youtubeButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
+            self.youtubeButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
+            self.youtubeButton.leadingAnchor.constraint(equalTo: self.facebookButton.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -228,10 +259,10 @@ extension FranDetailViewController {
     }
     
     @objc func moveToEventPage() {
-        if let stringURL = self.eventURL,
-            let url = URL(string: stringURL) {
-            let safariViewController = SFSafariViewController(url: url)
-            self.present(safariViewController, animated: true, completion: nil)
+        if let stringURL = self.eventURL {
+            let webviewVC = EventWebView(stringURL)
+            webviewVC.title = self.title
+            self.navigationController?.pushViewController(webviewVC, animated: true)
         }
     }
 }

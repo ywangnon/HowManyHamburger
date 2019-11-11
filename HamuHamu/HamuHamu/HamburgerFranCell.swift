@@ -9,16 +9,23 @@
 import UIKit
 
 class HamburgerFranCell: UITableViewCell {
-    var logoImgView: UIImageView = {
+//    var logoImgView: UIImageView = {
+//        let imgView = UIImageView()
+//        imgView.contentMode = .scaleAspectFit
+//        imgView.translatesAutoresizingMaskIntoConstraints = false
+//        return imgView
+//    }()
+    
+    var bannerImgView: UIImageView = {
         let imgView = UIImageView()
-        imgView.contentMode = .scaleAspectFit
+        imgView.contentMode = .scaleToFill
         imgView.translatesAutoresizingMaskIntoConstraints = false
         return imgView
     }()
     
     var nameLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .red
+        label.textColor = .yellow
         label.font = UIFont.systemFont(ofSize: 25, weight: .bold)
         label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -56,23 +63,33 @@ extension HamburgerFranCell {
     }
     
     func setAddSubViews() {
-        self.addSubviews([self.logoImgView,
-                          self.nameLabel])
+        self.addSubviews([//self.logoImgView,
+            self.bannerImgView,
+            self.nameLabel
+        ])
     }
     
     func setLayouts() {
         let safeArea = self.contentView.safeAreaLayoutGuide
         
+//        NSLayoutConstraint.activate([
+//            self.logoImgView.widthAnchor.constraint(equalToConstant: 50),
+//            self.logoImgView.heightAnchor.constraint(equalToConstant: 50),
+//            self.logoImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 25),
+//            self.logoImgView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
+//        ])
         NSLayoutConstraint.activate([
-            self.logoImgView.widthAnchor.constraint(equalToConstant: 50),
-            self.logoImgView.heightAnchor.constraint(equalToConstant: 50),
-            self.logoImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 25),
-            self.logoImgView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
+            self.bannerImgView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 3),
+            self.bannerImgView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -3),
+            self.bannerImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.bannerImgView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
-            self.nameLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-            self.nameLabel.leadingAnchor.constraint(equalTo: self.logoImgView.trailingAnchor, constant: 25)
+            self.nameLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 5),
+            self.nameLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor, constant: -5),
+//            self.nameLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+//            self.nameLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 25)
         ])
     }
     

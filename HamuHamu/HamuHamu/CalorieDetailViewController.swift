@@ -13,6 +13,7 @@ class CalorieDetailViewController: UIViewController {
 
     var tableView: UITableView = {
         let tableview = UITableView()
+        tableview.tableFooterView = UIView()
         tableview.register(CalorieCell.self, forCellReuseIdentifier: "calorieCell")
         tableview.translatesAutoresizingMaskIntoConstraints = false
         return tableview
@@ -40,7 +41,7 @@ extension CalorieDetailViewController {
         self.view.backgroundColor = .white
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .yellow
     }
     
     func setAddSubViews() {
@@ -74,19 +75,28 @@ extension CalorieDetailViewController {
 
 extension CalorieDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        do {
-            let realm = try Realm()
-            
-            let calorie = HamburgerCalorie("Macdonalds",
-                                           self.calorieArray[indexPath.row]["name"] as! String,
-                                           self.calorieArray[indexPath.row]["calorie"] as! Int)
-            
-            try realm.write {
-                realm.add(calorie, update: .modified)
+//        do {
+//            let realm = try Realm()
+//
+//            let calorie = HamburgerCalorie("Macdonalds",
+//                                           self.calorieArray[indexPath.row]["name"] as! String,
+//                                           self.calorieArray[indexPath.row]["calorie"] as! Int)
+//
+//            try realm.write {
+//                realm.add(calorie, update: .modified)
+//            }
+//        } catch let error {
+//            print(error)
+//        }
+        if let name = self.calorieArray[indexPath.row]["name"] as? String,
+            let calorie = self.calorieArray[indexPath.row]["calorie"] as? Int {
+            if let _ = totalCalories {
+                totalCalories?.append(["name":name, "calorie":calorie])
+            } else {
+                totalCalories = [["name":name, "calorie":calorie]]
             }
-        } catch let error {
-            print(error)
         }
+        print("caloriesssssss",totalCalories)
         self.navigationController?.popViewController(animated: true)
     }
 }

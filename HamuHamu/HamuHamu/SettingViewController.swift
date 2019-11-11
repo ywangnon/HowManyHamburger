@@ -51,7 +51,7 @@ extension SettingViewController {
         self.view.backgroundColor = .white
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationController?.navigationBar.tintColor = .yellow
     }
     
     func setAddSubViews() {

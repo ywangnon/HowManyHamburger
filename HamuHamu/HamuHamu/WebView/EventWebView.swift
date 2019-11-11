@@ -32,22 +32,25 @@ import WebKit
 
 class EventWebView: UIViewController {
 
-    var webView: WKWebView!
+    var webView: WKWebView = {
+        let webConfiguration = WKWebViewConfiguration()
+        let webview = WKWebView(frame: .zero, configuration: webConfiguration)
+        webview.translatesAutoresizingMaskIntoConstraints = false
+        return webview
+    }()
     
     var brandURL = ""
-    
-    override func loadView() {
-        let webConfiguration = WKWebViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        webView.uiDelegate = self
-        webView.navigationDelegate = self
-        view = webView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setViewFoundation()
+        self.setAddSubViews()
+        self.setLayout()
+        self.setDelegates()
+        
         let myURL = URL(string:self.brandURL)
+        print("URL::::", self.brandURL)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
@@ -62,40 +65,41 @@ class EventWebView: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(_ brand: Brand) {
+    convenience init(_ url: String) {
         self.init()
-        
-        self.brandURL = brand.rawValue
-        self.setViewFoundation(brand)
-    }
-    
-    func setViewFoundation(_ brand: Brand) {
-        var img = UIImage()
-        switch brand {
-        case .kfc:
-            img = UIImage(named: "KFC_title")!
-            self.navigationItem.title = "KFC"
-        case .king:
-            img = UIImage(named: "burgerking_title")!
-            self.navigationItem.title = "BurgerKing"
-        case .lotte:
-            img = UIImage(named: "lotteria_title")!
-            self.navigationItem.title = "Lotteria"
-        case .mc:
-            img = UIImage(named: "mcdonalds_title")!
-            self.navigationItem.title = "McDonald's"
-        }
-        let imgView = UIImageView(image: img)
-        imgView.contentMode = .scaleAspectFit
-//        self.navigationItem.titleView = imgView
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "cheese_arrow"), style: .plain, target: self, action: #selector(leftBarButton(_:)))
-        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
-
+        print("WebView")
+        self.brandURL = url
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension EventWebView {
+    func setViewFoundation() {
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "cheese_arrow"), style: .plain, target: self, action: #selector(leftBarButton(_:)))
+        self.navigationItem.leftBarButtonItem?.tintColor = UIColor.yellow
+    }
+    
+    func setAddSubViews() {
+        self.view.addSubviews([self.webView])
+    }
+    
+    func setLayout() {
+        let safeArea = self.view.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            self.webView.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            self.webView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            self.webView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.webView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
+        ])
+    }
+    
+    func setDelegates() {
+        self.webView.uiDelegate = self
+        self.webView.navigationDelegate = self
     }
 }
 

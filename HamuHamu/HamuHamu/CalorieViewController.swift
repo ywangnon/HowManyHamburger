@@ -13,10 +13,15 @@ class CalorieViewController: UIViewController {
     
     var totalLabel: UILabel = {
         let label = UILabel()
-        label.layer.borderColor = UIColor.blue.cgColor
-        label.layer.borderWidth = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    var totalLineView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .getRGB(red: 94, green: 94, blue: 90, alpha: 0.5)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     var tableview: UITableView = {
@@ -27,8 +32,9 @@ class CalorieViewController: UIViewController {
         return tableview
     }()
     
-    var calorieObjects: Results<HamburgerCalorie>?
-
+    //    var calorieObjects: Results<HamburgerCalorie>?
+    var calories: [[String:Any]]?
+    
     override func viewWillAppear(_ animated: Bool) {
         self.setResult()
         self.sumCalorie()
@@ -37,7 +43,7 @@ class CalorieViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setViewFoundations()
         self.setAddSubViews()
         self.setLayouts()
@@ -51,7 +57,7 @@ class CalorieViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return navigationController?.isNavigationBarHidden == true
     }
-
+    
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return UIStatusBarAnimation.slide
     }
@@ -74,6 +80,7 @@ extension CalorieViewController {
     
     func setAddSubViews() {
         self.view.addSubviews([self.totalLabel,
+                               self.totalLineView,
                                self.tableview])
     }
     
@@ -82,9 +89,16 @@ extension CalorieViewController {
         
         NSLayoutConstraint.activate([
             self.totalLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            self.totalLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.totalLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
             self.totalLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             self.totalLabel.heightAnchor.constraint(equalToConstant: 70)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.totalLineView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.totalLineView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            self.totalLineView.bottomAnchor.constraint(equalTo: totalLabel.bottomAnchor),
+            self.totalLineView.heightAnchor.constraint(equalToConstant: 1)
         ])
         
         NSLayoutConstraint.activate([
@@ -111,49 +125,78 @@ extension CalorieViewController {
 
 extension CalorieViewController {
     func setResult() {
-        do {
-            let realm = try Realm()
-            
-            let object = realm.objects(HamburgerCalorie.self)
-            self.calorieObjects = object
-        } catch let error {
-            print(error)
-        }
-        print("object", self.calorieObjects)
+        //        do {
+        //            let realm = try Realm()
+        //
+        //            let object = realm.objects(HamburgerCalorie.self)
+        //            self.calorieObjects = object
+        //        } catch let error {
+        //            print(error)
+        //        }
+        self.calories = totalCalories
+        
         self.tableview.reloadData()
     }
     
     func sumCalorie() {
-        if let objects = self.calorieObjects {
-            var total = 0
-            for object in objects {
-                total += object.calorie
-                print("calorie:::", object.calorie)
-                print("sum:::", total)
+        //        if let objects = self.calorieObjects {
+        //            var total = 0
+        //            for object in objects {
+        //                total += object.calorie
+        //                print("calorie:::", object.calorie)
+        //                print("sum:::", total)
+        //            }
+        //            self.totalLabel.text = "전체 칼로리: \(total) kcal"
+        //        }
+        
+        var total = 0
+        if let calories = self.calories {
+            for hamburger in calories {
+                if let calorie = hamburger["calorie"] as? Int {
+                    total += calorie
+                }
             }
-            self.totalLabel.text = "전체 칼로리: \(total) kcal"
         }
+        self.totalLabel.text = "전체 칼로리: \(total) kcal"
     }
 }
 
 extension CalorieViewController: UITableViewDelegate {
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let deleteAction = UITableViewRowAction(style: .destructive, title: "삭제") { (action, index) in
+//            totalCalories?.remove(at: index.row)
+//        }
+//        
+//        return [deleteAction]
+//    }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            totalCalories?.remove(at: indexPath.row)
+        }
+        DispatchQueue.main.async {
+            self.setResult()
+            self.sumCalorie()
+            self.tableview.reloadData()
+        }
+    }
 }
 
 extension CalorieViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.calorieObjects?.count ?? 0
+        print("number table")
+        return self.calories?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "calorieCell", for: indexPath) as! CalorieCell
-        print("before:::", self.calorieObjects?[indexPath.row])
-        if let calorie = self.calorieObjects?[indexPath.row] {
-            print("cell calorie::::::",calorie)
-            print("name:::", calorie.name)
-            print("cal:::", calorie.calorie)
-            cell.nameLabel.text = calorie.name
-            cell.calorieLabel.text = "\(calorie.calorie) kcal"
+        cell.backgroundColor = .white
+        
+        if let hamburger = self.calories?[indexPath.row],
+            let name = hamburger["name"] as? String,
+            let calorie = hamburger["calorie"] as? Int {
+            cell.nameLabel.text = name
+            cell.calorieLabel.text = "\(calorie) kcal"
         }
         return cell
     }
@@ -170,13 +213,22 @@ extension CalorieViewController {
         }
         
         let kfcAction = UIAlertAction(title: "KFC", style: .default) { (action) in
-            
+            let detailView = CalorieDetailViewController()
+            detailView.title = "KFC"
+            detailView.calorieArray = KFCCalorie
+            self.navigationController?.pushViewController(detailView, animated: true)
         }
         let burgerkingAction = UIAlertAction(title: "버거킹", style: .default) { (action) in
-            
+            let detailView = CalorieDetailViewController()
+            detailView.title = "버거킹"
+            detailView.calorieArray = BurgerKingCalorie
+            self.navigationController?.pushViewController(detailView, animated: true)
         }
         let lotteriaAction = UIAlertAction(title: "롯데리아", style: .default) { (action) in
-            
+            let detailView = CalorieDetailViewController()
+            detailView.title = "롯데리아"
+            detailView.calorieArray = LotteriaCalorie
+            self.navigationController?.pushViewController(detailView, animated: true)
         }
         let cancelAction = UIAlertAction(title: "취소", style: .cancel) { (action) in
             

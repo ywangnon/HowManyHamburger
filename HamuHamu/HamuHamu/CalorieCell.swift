@@ -26,6 +26,12 @@ class CalorieCell: UITableViewCell {
         return label
     }()
     
+    var lineView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -57,8 +63,10 @@ extension CalorieCell {
     }
     
     func setAddSubViews() {
-        self.addSubviews([self.nameLabel,
-                          self.calorieLabel])
+        self.addSubviews([
+            self.nameLabel,
+            self.calorieLabel
+        ])
     }
     
     func setLayouts() {
