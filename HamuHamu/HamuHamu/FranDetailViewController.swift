@@ -49,6 +49,7 @@ class FranDetailViewController: UIViewController {
 
     var callButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .systemPink
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
         button.setTitle("☏", for: .normal)
@@ -60,6 +61,7 @@ class FranDetailViewController: UIViewController {
     
     var facebookButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .systemGreen
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
         button.setTitle("ⓕ", for: .normal)
@@ -71,6 +73,7 @@ class FranDetailViewController: UIViewController {
     
     var youtubeButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .systemBlue
         button.layer.borderColor = UIColor.getRGB(red: 240, green: 240, blue: 240).cgColor
         button.layer.borderWidth = 1
         button.setTitle("▶︎", for: .normal)
@@ -82,6 +85,7 @@ class FranDetailViewController: UIViewController {
     
     var eventWebViewButton: UIButton = {
         let button = UIButton()
+        button.backgroundColor = .systemOrange
         button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor.black.cgColor
         button.layer.borderWidth = 1
@@ -146,10 +150,10 @@ extension FranDetailViewController {
         self.view.addSubviews([self.backgroundImgView,
 //                               self.logoImageView,
                                self.buttonsView,
-                               self.eventWebViewButton,
                                self.brandNameLabel])
         self.buttonsView.addSubviews([self.callButton,
                                       self.facebookButton,
+                                      self.eventWebViewButton,
                                       self.youtubeButton])
     }
     
@@ -178,38 +182,43 @@ extension FranDetailViewController {
 //        ])
 //
         NSLayoutConstraint.activate([
-            self.buttonsView.topAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor, constant: 5),
+            self.buttonsView.topAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor),
             self.buttonsView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             self.buttonsView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.buttonsView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1/8)
+            self.buttonsView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+        ])
+        
+        let width = safeArea.layoutFrame.width > safeArea.layoutFrame.height * 0.75 ? safeArea.layoutFrame.height * 0.75 * 0.25 : safeArea.layoutFrame.width * 0.25
+        let widthMargin = (safeArea.layoutFrame.width - (2 * width)) / 4
+        let heightMargin = ((safeArea.layoutFrame.height * 0.75) - (2 * width)) / 4
+        
+        
+        NSLayoutConstraint.activate([
+            self.callButton.heightAnchor.constraint(equalToConstant: width),
+            self.callButton.widthAnchor.constraint(equalToConstant: width),
+            self.callButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor, constant: widthMargin),
+            self.callButton.topAnchor.constraint(equalTo: self.buttonsView.topAnchor, constant: heightMargin)
         ])
         
         NSLayoutConstraint.activate([
-            self.callButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
-            self.callButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
-            self.callButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
-            self.callButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor)
+            self.facebookButton.heightAnchor.constraint(equalToConstant: width),
+            self.facebookButton.widthAnchor.constraint(equalToConstant: width),
+            self.facebookButton.trailingAnchor.constraint(equalTo: self.buttonsView.trailingAnchor, constant: -widthMargin),
+            self.facebookButton.topAnchor.constraint(equalTo: self.buttonsView.topAnchor, constant: heightMargin),
         ])
         
         NSLayoutConstraint.activate([
-            self.facebookButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
-            self.facebookButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
-            self.facebookButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
-            self.facebookButton.leadingAnchor.constraint(equalTo: self.callButton.trailingAnchor)
+            self.youtubeButton.heightAnchor.constraint(equalToConstant: width),
+            self.youtubeButton.widthAnchor.constraint(equalToConstant: width),
+            self.youtubeButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor, constant: widthMargin),
+            self.youtubeButton.bottomAnchor.constraint(equalTo: self.buttonsView.bottomAnchor, constant: -heightMargin)
         ])
         
         NSLayoutConstraint.activate([
-            self.youtubeButton.heightAnchor.constraint(equalTo: self.buttonsView.heightAnchor),
-            self.youtubeButton.widthAnchor.constraint(equalTo: self.buttonsView.widthAnchor, multiplier: 1/3),
-            self.youtubeButton.centerYAnchor.constraint(equalTo: self.buttonsView.centerYAnchor),
-            self.youtubeButton.leadingAnchor.constraint(equalTo: self.facebookButton.trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            self.eventWebViewButton.topAnchor.constraint(equalTo: self.buttonsView.bottomAnchor, constant: 10),
-            self.eventWebViewButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
-            self.eventWebViewButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
-            self.eventWebViewButton.heightAnchor.constraint(equalToConstant: 50)
+            self.eventWebViewButton.heightAnchor.constraint(equalToConstant: width),
+            self.eventWebViewButton.widthAnchor.constraint(equalToConstant: width),
+            self.eventWebViewButton.trailingAnchor.constraint(equalTo: self.buttonsView.trailingAnchor, constant: -widthMargin),
+            self.eventWebViewButton.bottomAnchor.constraint(equalTo: self.buttonsView.bottomAnchor, constant: -heightMargin),
         ])
     }
     

@@ -9,11 +9,11 @@
 import UIKit
 import SafariServices
 import StoreKit
-//import SwiftyGif
 import NotificationCenter
+import Firebase
+import FirebaseFirestore
 
 class BrandViewController: UIViewController {
-    
     let brandDic = [["name":"KFC",
                      "logo":UIImage(named: "KFC")!,
                      "image":UIImage(named: "Bannerkfc")!,
@@ -51,14 +51,6 @@ class BrandViewController: UIViewController {
                      "facebook":BrandFaceBook.lotte.rawValue,
                      "youtube":BrandYoubute.lotte.rawValue]]
     
-//    var imageView: UIImageView = {
-//        let imgView = UIImageView()
-//        imgView.contentMode = .scaleAspectFit
-//        imgView.backgroundColor = .white
-//        imgView.translatesAutoresizingMaskIntoConstraints = false
-//        return imgView
-//    }()
-    
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.separatorStyle = .none
@@ -73,19 +65,11 @@ class BrandViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.setViewFoundations()
         self.setAddSubViews()
         self.setLayouts()
         self.setDelegates()
-        
-//        do {
-//            let gif = try UIImage(gifName: "intro.gif")
-//            self.imageView.setGifImage(gif, loopCount: 1)
-//        } catch {
-//            print(error)
-//        }
-        
+        self.readFirebaseDatabase()
     }
 
     override func didReceiveMemoryWarning() {
@@ -131,17 +115,9 @@ extension BrandViewController {
             self.tableView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor)
         ])
         
-//        NSLayoutConstraint.activate([
-//            self.imageView.topAnchor.constraint(equalTo: self.view.topAnchor),
-//            self.imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
-//            self.imageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-//            self.imageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor)
-//        ])
-        
     }
     
     func setDelegates() {
-//        self.imageView.delegate = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
     }
@@ -151,6 +127,21 @@ extension BrandViewController {
     }
     
     func setGestures() {
+        
+    }
+    
+    func readFirebaseDatabase() {
+        let db = Firestore.firestore()
+        db.collection("Franchise").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+        
         
     }
 }
@@ -211,32 +202,6 @@ extension BrandViewController {
     
 }
 
-//extension BrandViewController: SwiftyGifDelegate {
-//    func gifURLDidFinish(sender: UIImageView) {
-//        print("gifURLDidFinish")
-//    }
-//
-//    func gifURLDidFail(sender: UIImageView) {
-//        print("gifURLDidFail")
-//    }
-//
-//    func gifDidStart(sender: UIImageView) {
-//        print("gifDidStart")
-////        self.navigationController?.navigationBar.isHidden = true
-//    }
-//
-//    func gifDidLoop(sender: UIImageView) {
-//        print("gifDidLoop")
-//    }
-//
-//    func gifDidStop(sender: UIImageView) {
-//        print("gifDidStop")
-////        self.navigationController?.navigationBar.isHidden = false
-//        self.imageView.isHidden = true
-//        CommonMethod.shared.notificationSetting()
-//    }
-//}
-
 extension BrandViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -259,16 +224,6 @@ extension BrandViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / CGFloat(self.brandDic.count)
     }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 30
-//    }
-    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        var title = String()
-//        title = "프랜차이즈"
-//        return title
-//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("touch")
