@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import FirebaseFirestore
 
 class FranDetailViewController: UIViewController {
     var callNumber: String?
@@ -235,6 +236,19 @@ extension FranDetailViewController {
     
     func setGestures() {
         
+    }
+    
+    func readFirebaseDatabase() {
+        let db = Firestore.firestore()
+        db.collection("Event").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
     }
 }
 

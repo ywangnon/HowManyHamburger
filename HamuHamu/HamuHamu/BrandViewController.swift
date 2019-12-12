@@ -141,8 +141,6 @@ extension BrandViewController {
                 }
             }
         }
-        
-        
     }
 }
 
