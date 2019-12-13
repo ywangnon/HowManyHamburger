@@ -18,6 +18,7 @@ class FranDetailViewController: UIViewController {
     var brandImage: UIImage?
     var brandImgs: [UIImage]?
     var brandName: String?
+    var eventArr: [String:Any]?
     
     var backgroundImgView: UIImageView = {
         let imgView = UIImageView()
@@ -246,6 +247,7 @@ extension FranDetailViewController {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
+                    self.eventArr = document.data()
                 }
             }
         }
