@@ -248,6 +248,7 @@ extension FranDetailViewController {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
+                    // Firebase 작업중
                 }
             }
         }
