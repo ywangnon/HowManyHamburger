@@ -249,6 +249,35 @@ extension FranDetailViewController {
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
                     // Firebase 작업중
+                    /*
+                     Firebase 구조가 어려워서 진척이 안되고 있음.
+                     - 내가 원하는 구조
+                     Event [
+                        Macdonalds [
+                            ["title":...,"date":...,"body":...],
+                            ["title":...,"date":...,"body":...],
+                            ["title":...,"date":...,"body":...]
+                        ],
+                        KFC [
+                            ["title":...,"date":...,"body":...],
+                            ["title":...,"date":...,"body":...],
+                            ["title":...,"date":...,"body":...]
+                        ],
+                        ...
+                     ]
+                     - Firestore
+                     Event [
+                        Macdonalds [
+                            field:body,
+                            field:body,
+                            field:body
+                        ]
+                     ]
+                     
+                     * 브랜드에 필드값을 필수로 적어야하기 떄문에 만들기 애매하다.
+                     그냥 배열로 만들려고 해도 필드값이 필수고, 참조로 해도 참조하는 컬렉션도 결국 필드값을 만들어줘야한다.
+                     현재 고민중...
+                     */
                 }
             }
         }
