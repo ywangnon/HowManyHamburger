@@ -69,7 +69,6 @@ class BrandViewController: UIViewController {
         self.setAddSubViews()
         self.setLayouts()
         self.setDelegates()
-        self.readFirebaseDatabase()
     }
 
     override func didReceiveMemoryWarning() {

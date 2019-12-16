@@ -108,6 +108,7 @@ class FranDetailViewController: UIViewController {
         self.setLayouts()
         self.setAddTargets()
         self.backgroundIMGSetting()
+        self.readFirebaseDatabase()
     }
     
 
@@ -240,14 +241,17 @@ extension FranDetailViewController {
     }
     
     func readFirebaseDatabase() {
+        print("read Firebase")
         let db = Firestore.firestore()
-        db.collection("Event").getDocuments { (querySnapshot, err) in
+        db.collection("Franchise").getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
+                    print("------------Event-------------------")
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
+                    
                     // Firebase 작업중
                     /*
                      Firebase 구조가 어려워서 진척이 안되고 있음.
@@ -277,6 +281,13 @@ extension FranDetailViewController {
                      * 브랜드에 필드값을 필수로 적어야하기 떄문에 만들기 애매하다.
                      그냥 배열로 만들려고 해도 필드값이 필수고, 참조로 해도 참조하는 컬렉션도 결국 필드값을 만들어줘야한다.
                      현재 고민중...
+                     
+                     12.16.2019
+                     각각의 프랜차이즈 이벤트를 컬렉션으로 만들고, 프랜차이즈 컬렉션에서 각각의 브랜드에 이벤트 배열을 반들어 참조시킴.
+                     참조 문구
+                     <FIRDocumentReference: 0x281a382d0>,
+                     <FIRDocumentReference: 0x281a38300>
+                     이상하게 나옴.
                      */
                 }
             }
