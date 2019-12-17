@@ -251,7 +251,7 @@ extension FranDetailViewController {
                     print("------------Event-------------------")
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
-                    
+                    print(self.eventArr)
                     // Firebase 작업중
                     /*
                      Firebase 구조가 어려워서 진척이 안되고 있음.
