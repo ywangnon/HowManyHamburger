@@ -254,7 +254,9 @@ extension FranDetailViewController {
                     print(self.eventArr)
                     document.data().flatMap { (key, value) -> Any in
                         print("key: \(key), value: \(value)")
+                        FieldValue.serverTimestamp()
                     }
+                    
                     // Firebase 작업중
                     /*
                      Firebase 구조가 어려워서 진척이 안되고 있음.
