@@ -252,9 +252,15 @@ extension FranDetailViewController {
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
                     print(self.eventArr)
+                    var ref: DocumentReference!
                     document.data().flatMap { (key, value) -> Any in
-                        print("key: \(key), value: \(value)")
-                        FieldValue.serverTimestamp()
+                        if key == "Event" {
+                            ref = value as? DocumentReference
+                            print("key: \(key), value: \(ref)")
+                        } else {
+                            print("key: \(key), value: \(value)")
+                        }
+                        return print("ddd")
                     }
                     
                     // Firebase 작업중
@@ -293,6 +299,8 @@ extension FranDetailViewController {
                      <FIRDocumentReference: 0x281a382d0>,
                      <FIRDocumentReference: 0x281a38300>
                      이상하게 나옴.
+                     
+                     Firebase Document Reference 타입으로 변수를 만들어서 넣어보기.
                      */
                 }
             }
