@@ -301,6 +301,9 @@ extension FranDetailViewController {
                      이상하게 나옴.
                      
                      Firebase Document Reference 타입으로 변수를 만들어서 넣어보기.
+                     
+                     12/21
+                     - 일단 if 문으로 걸러서 각각의 collection을 읽어오게 하기
                      */
                 }
             }
