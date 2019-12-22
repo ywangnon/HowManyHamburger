@@ -108,7 +108,7 @@ class FranDetailViewController: UIViewController {
         self.setLayouts()
         self.setAddTargets()
         self.backgroundIMGSetting()
-        self.readFirebaseDatabase()
+        self.setBrandEvent()
     }
     
 
@@ -240,28 +240,34 @@ extension FranDetailViewController {
         
     }
     
-    func readFirebaseDatabase() {
-        print("read Firebase")
+    func setBrandEvent() {
+        guard let brand = self.brandName else {
+            return
+        }
+        
+        switch brand {
+        case "KFC":
+            self.readFirebaseDatabase("KFC_Event")
+        case "McDonal":
+            self.readFirebaseDatabase("Macdonalds_Event")
+        case "BurgerKing":
+            self.readFirebaseDatabase("BurgerKing_Event")
+        case "Lotteria":
+            self.readFirebaseDatabase("Lotteria_Event")
+        default:
+            print("anyone")
+        }
+    }
+    
+    func readFirebaseDatabase(_ collection: String) {
         let db = Firestore.firestore()
-        db.collection("Franchise").getDocuments { (querySnapshot, err) in
+        db.collection(collection).getDocuments { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("------------Event-------------------")
                     print("\(document.documentID) => \(document.data())")
                     self.eventArr = document.data()
-                    print(self.eventArr)
-                    var ref: DocumentReference!
-                    document.data().flatMap { (key, value) -> Any in
-                        if key == "Event" {
-                            ref = value as? DocumentReference
-                            print("key: \(key), value: \(ref)")
-                        } else {
-                            print("key: \(key), value: \(value)")
-                        }
-                        return print("ddd")
-                    }
                     
                     // Firebase 작업중
                     /*
