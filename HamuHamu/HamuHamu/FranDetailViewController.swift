@@ -267,7 +267,9 @@ extension FranDetailViewController {
             } else {
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
-                    self.eventArr = document.data()
+                    let title = document.data()["title"] as? String
+                    let startDay = document.data()["dateStart"] as? Date
+                    let endDay = document.data()["dateEnd"] as? Date
                     
                     // Firebase 작업중
                     /*
