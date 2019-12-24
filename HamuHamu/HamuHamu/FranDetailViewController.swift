@@ -98,6 +98,12 @@ class FranDetailViewController: UIViewController {
         return button
     }()
     
+    var eventList: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
