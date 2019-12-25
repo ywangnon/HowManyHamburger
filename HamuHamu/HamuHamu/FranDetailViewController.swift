@@ -156,15 +156,11 @@ extension FranDetailViewController {
     }
     
     func setAddSubViews() {
-        self.view.addSubviews([self.backgroundImgView,
-//                               self.logoImageView,
-                               self.buttonsView,
-                               self.brandNameLabel])
-        self.buttonsView.addSubviews([
-//            self.callButton,
-//            self.facebookButton,
-            self.eventWebViewButton
-//            self.youtubeButton
+        self.view.addSubviews([
+            self.backgroundImgView,
+            self.brandNameLabel,
+            self.eventWebViewButton,
+            self.eventList
         ])
     }
     
@@ -183,51 +179,18 @@ extension FranDetailViewController {
             self.brandNameLabel.bottomAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor, constant: -10)
         ])
         
-//        NSLayoutConstraint.activate([
-//            self.logoImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10),
-//            self.logoImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-//            self.logoImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-//            self.logoImageView.heightAnchor.constraint(equalTo: safeArea.heightAnchor, multiplier: 1/7)
-//        ])
-//
-        NSLayoutConstraint.activate([
-            self.buttonsView.topAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor),
-            self.buttonsView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            self.buttonsView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.buttonsView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-        ])
-        
-//        let width = safeArea.layoutFrame.width > safeArea.layoutFrame.height * 0.75 ? safeArea.layoutFrame.height * 0.75 * 0.25 : safeArea.layoutFrame.width * 0.25
-//        let widthMargin = (safeArea.layoutFrame.width - (2 * width)) / 4
-//        let heightMargin = ((safeArea.layoutFrame.height * 0.75) - (2 * width)) / 4
-//
-//
-//        NSLayoutConstraint.activate([
-//            self.callButton.heightAnchor.constraint(equalToConstant: width),
-//            self.callButton.widthAnchor.constraint(equalToConstant: width),
-//            self.callButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor, constant: widthMargin),
-//            self.callButton.topAnchor.constraint(equalTo: self.buttonsView.topAnchor, constant: heightMargin)
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            self.facebookButton.heightAnchor.constraint(equalToConstant: width),
-//            self.facebookButton.widthAnchor.constraint(equalToConstant: width),
-//            self.facebookButton.trailingAnchor.constraint(equalTo: self.buttonsView.trailingAnchor, constant: -widthMargin),
-//            self.facebookButton.topAnchor.constraint(equalTo: self.buttonsView.topAnchor, constant: heightMargin),
-//        ])
-//
-//        NSLayoutConstraint.activate([
-//            self.youtubeButton.heightAnchor.constraint(equalToConstant: width),
-//            self.youtubeButton.widthAnchor.constraint(equalToConstant: width),
-//            self.youtubeButton.leadingAnchor.constraint(equalTo: self.buttonsView.leadingAnchor, constant: widthMargin),
-//            self.youtubeButton.bottomAnchor.constraint(equalTo: self.buttonsView.bottomAnchor, constant: -heightMargin)
-//        ])
-        
         NSLayoutConstraint.activate([
             self.eventWebViewButton.leadingAnchor.constraint(equalTo: self.backgroundImgView.leadingAnchor),
             self.eventWebViewButton.trailingAnchor.constraint(equalTo: self.backgroundImgView.trailingAnchor),
             self.eventWebViewButton.topAnchor.constraint(equalTo: self.backgroundImgView.topAnchor),
             self.eventWebViewButton.bottomAnchor.constraint(equalTo: self.backgroundImgView.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.eventList.topAnchor.constraint(equalTo: backgroundImgView.bottomAnchor),
+            self.eventList.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
+            self.eventList.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.eventList.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
         ])
     }
     
