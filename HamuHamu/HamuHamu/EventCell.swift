@@ -9,6 +9,11 @@
 import UIKit
 
 class EventCell: UITableViewCell {
+    var cellTitleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +26,19 @@ class EventCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension EventCell {
+    func setCell(_ title: String) {
+        self.cellTitleLabel.text = title
+    }
+    
+    func setAddSubViews() {
+        let safeArea = self.safeAreaLayoutGuide
+        
+        NSLayoutConstraint.activate([
+            self.cellTitleLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
+            self.cellTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20)
+        ])
+    }
 }
