@@ -18,7 +18,7 @@ class FranDetailViewController: UIViewController {
     var brandImage: UIImage?
     var brandImgs: [UIImage]?
     var brandName: String?
-    var eventArr: [String:Any]?
+    var eventArr = [String:Any]()
     
     var backgroundImgView: UIImageView = {
         let imgView = UIImageView()
@@ -239,6 +239,10 @@ extension FranDetailViewController {
                     let title = document.data()["title"] as? String
                     let startDay = document.data()["dateStart"] as? Date
                     let endDay = document.data()["dateEnd"] as? Date
+                    let arr: [String : Any] = ["title":title,
+                                               "startDay":startDay,
+                                               "endDay":endDay]
+                    
                     
                     // Firebase 작업중
                     /*
