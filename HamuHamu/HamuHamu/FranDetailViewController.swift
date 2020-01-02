@@ -100,6 +100,7 @@ class FranDetailViewController: UIViewController {
     
     var eventList: UITableView = {
         let tableView = UITableView()
+        tableView.register(EventCell.self, forCellReuseIdentifier: "eventCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -350,7 +351,7 @@ extension FranDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.
     }
     
     
