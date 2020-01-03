@@ -351,7 +351,9 @@ extension FranDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventCell
+        cell.cellTitleLabel.text = self.eventArr[indexPath.row]["title"] as? String
+        return cell
     }
     
     
