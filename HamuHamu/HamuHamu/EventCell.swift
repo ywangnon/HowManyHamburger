@@ -11,6 +11,8 @@ import UIKit
 class EventCell: UITableViewCell {
     var cellTitleLabel: UILabel = {
         let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -25,7 +27,18 @@ class EventCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setAddSubViews()
+        self.setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
 }
 
 extension EventCell {
@@ -34,11 +47,18 @@ extension EventCell {
     }
     
     func setAddSubViews() {
+        self.addSubviews([self.cellTitleLabel])
+    }
+    
+    func setLayout() {
         let safeArea = self.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.cellTitleLabel.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),
-            self.cellTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20)
+            self.cellTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+            self.cellTitleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            self.cellTitleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            self.cellTitleLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            
         ])
     }
 }

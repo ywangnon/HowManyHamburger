@@ -101,6 +101,7 @@ class FranDetailViewController: UIViewController {
     var eventList: UITableView = {
         let tableView = UITableView()
         tableView.register(EventCell.self, forCellReuseIdentifier: "eventCell")
+        tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -113,6 +114,7 @@ class FranDetailViewController: UIViewController {
         self.setViewFoundations()
         self.setAddSubViews()
         self.setLayouts()
+        self.setDelegates()
         self.setAddTargets()
         self.backgroundIMGSetting()
         self.setBrandEvent()
@@ -196,7 +198,8 @@ extension FranDetailViewController {
     }
     
     func setDelegates() {
-        
+        self.eventList.delegate = self
+        self.eventList.dataSource = self
     }
     
     func setAddTargets() {
@@ -287,6 +290,7 @@ extension FranDetailViewController {
                      12/21
                      - 일단 if 문으로 걸러서 각각의 collection을 읽어오게 하기
                      */
+                    self.eventList.reloadData()
                 }
             }
         }
@@ -353,6 +357,7 @@ extension FranDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventCell
         cell.cellTitleLabel.text = self.eventArr[indexPath.row]["title"] as? String
+        print("cell title", self.eventArr[indexPath.row]["title"] as? String)
         return cell
     }
     
