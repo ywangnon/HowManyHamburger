@@ -110,6 +110,7 @@ class FranDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.setBrandEvent()
         self.setNavigationTitle()
         self.setViewFoundations()
         self.setAddSubViews()
@@ -117,7 +118,6 @@ class FranDetailViewController: UIViewController {
         self.setDelegates()
         self.setAddTargets()
         self.backgroundIMGSetting()
-        self.setBrandEvent()
     }
     
 
