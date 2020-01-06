@@ -110,14 +110,15 @@ class FranDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.setBrandEvent()
-        self.setNavigationTitle()
-        self.setViewFoundations()
-        self.setAddSubViews()
-        self.setLayouts()
-        self.setDelegates()
-        self.setAddTargets()
-        self.backgroundIMGSetting()
+        self.setBrandEvent {
+            self.setNavigationTitle()
+            self.setViewFoundations()
+            self.setAddSubViews()
+            self.setLayouts()
+            self.setDelegates()
+            self.setAddTargets()
+            self.backgroundIMGSetting()
+        }
     }
     
 
@@ -213,26 +214,26 @@ extension FranDetailViewController {
         
     }
     
-    func setBrandEvent() {
+    func setBrandEvent(callBack: (()->Void)? = nil) {
         guard let brand = self.brandName else {
             return
         }
         
         switch brand {
         case "KFC":
-            self.readFirebaseDatabase("KFC_Event")
+            self.readFirebaseDatabase("KFC_Event", callBack: callBack)
         case "McDonal":
-            self.readFirebaseDatabase("Macdonalds_Event")
+            self.readFirebaseDatabase("Macdonalds_Event", callBack: callBack)
         case "BurgerKing":
-            self.readFirebaseDatabase("BurgerKing_Event")
+            self.readFirebaseDatabase("BurgerKing_Event", callBack: callBack)
         case "Lotteria":
-            self.readFirebaseDatabase("Lotteria_Event")
+            self.readFirebaseDatabase("Lotteria_Event", callBack: callBack)
         default:
             print("anyone")
         }
     }
     
-    func readFirebaseDatabase(_ collection: String) {
+    func readFirebaseDatabase(_ collection: String, callBack: (()->Void)? = nil) {
         let db = Firestore.firestore()
         db.collection(collection).getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -247,7 +248,7 @@ extension FranDetailViewController {
                                                "startDay":startDay,
                                                "endDay":endDay]
                     self.eventArr.append(arr)
-                    
+                    callBack?()
                     // Firebase 작업중
                     /*
                      Firebase 구조가 어려워서 진척이 안되고 있음.
