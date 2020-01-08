@@ -9,6 +9,15 @@
 import UIKit
 
 class EventCell: UITableViewCell {
+    var brandLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .black
+        label.textAlignment = .center
+        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     var cellTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
