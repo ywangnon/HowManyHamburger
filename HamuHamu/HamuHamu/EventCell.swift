@@ -18,10 +18,21 @@ class EventCell: UITableViewCell {
         return label
     }()
     
-    var cellTitleLabel: UILabel = {
+    var eventImageView: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        return imgView
+    }()
+    
+    var eventStartDayLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .black
-        label.textAlignment = .center
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
+    var eventEndDayLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
