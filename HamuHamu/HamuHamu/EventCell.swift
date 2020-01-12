@@ -18,6 +18,12 @@ class EventCell: UITableViewCell {
         return label
     }()
     
+    var eventNameLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     var eventImageView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
@@ -63,21 +69,21 @@ class EventCell: UITableViewCell {
 
 extension EventCell {
     func setCell(_ title: String) {
-        self.cellTitleLabel.text = title
+        self.eventNameLabel.text = title
     }
     
     func setAddSubViews() {
-        self.addSubviews([self.cellTitleLabel])
+        self.addSubviews([self.eventNameLabel])
     }
     
     func setLayout() {
         let safeArea = self.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.cellTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
-            self.cellTitleLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            self.cellTitleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            self.cellTitleLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
+            self.eventNameLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 20),
+            self.eventNameLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            self.eventNameLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
+            self.eventNameLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
             
         ])
     }
