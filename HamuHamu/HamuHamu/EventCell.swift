@@ -73,7 +73,13 @@ extension EventCell {
     }
     
     func setAddSubViews() {
-        self.addSubviews([self.eventNameLabel])
+        self.addSubviews([
+            self.brandLabel,
+            self.eventImageView,
+            self.eventNameLabel,
+            self.eventStartDayLabel,
+            self.eventEndDayLabel
+        ])
     }
     
     func setLayout() {
@@ -84,7 +90,6 @@ extension EventCell {
             self.eventNameLabel.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             self.eventNameLabel.topAnchor.constraint(equalTo: safeArea.topAnchor),
             self.eventNameLabel.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-            
         ])
     }
 }
