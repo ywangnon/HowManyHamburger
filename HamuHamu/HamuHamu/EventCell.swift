@@ -86,8 +86,10 @@ extension EventCell {
         let safeArea = self.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
-            self.brandLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 15),
-            
+            self.eventImageView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
+            self.eventImageView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor, constant: -10),
+            self.eventImageView.heightAnchor.constraint(equalToConstant: 100),
+            self.eventImageView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 10)
         ])
     }
 }
