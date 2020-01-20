@@ -14,6 +14,7 @@ import NotificationCenter
 
 class ViewController: UIViewController {
     
+    // 매 처음 이미지를 보여주는 뷰. 뒷배경이 터치 가능하기때문에 uiview위에 올려서 hidden 시키는 것이 좋다.
     var imageView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleAspectFit
@@ -49,10 +50,6 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-    
-//    override var prefersStatusBarHidden: Bool {
-//        return navigationController?.isNavigationBarHidden == true
-//    }
     
     override var preferredStatusBarUpdateAnimation: UIStatusBarAnimation {
         return UIStatusBarAnimation.slide
@@ -139,7 +136,6 @@ extension ViewController: SwiftyGifDelegate {
     
     func gifDidStart(sender: UIImageView) {
         print("gifDidStart")
-//        self.navigationController?.navigationBar.isHidden = true
     }
     
     func gifDidLoop(sender: UIImageView) {
@@ -148,7 +144,6 @@ extension ViewController: SwiftyGifDelegate {
     
     func gifDidStop(sender: UIImageView) {
         print("gifDidStop")
-//        self.navigationController?.navigationBar.isHidden = false
         self.imageView.isHidden = true
         CommonMethod.shared.notificationSetting()
         
