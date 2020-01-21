@@ -9,7 +9,12 @@
 import UIKit
 
 class EventListViewController: UIViewController {
-
+    var eventTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        return tableView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,4 +32,20 @@ class EventListViewController: UIViewController {
     }
     */
 
+}
+
+extension EventListViewController: UITableViewDelegate {
+    
+}
+
+extension EventListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
+    
 }
