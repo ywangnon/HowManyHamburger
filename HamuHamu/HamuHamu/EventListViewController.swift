@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventListViewController: UIViewController {
     var eventTableView: UITableView = {
@@ -32,6 +33,19 @@ class EventListViewController: UIViewController {
     }
     */
 
+    
+    func readFirebaseDatabase() {
+        let db = Firestore.firestore()
+        db.collection("Franchise").getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                }
+            }
+        }
+    }
 }
 
 extension EventListViewController: UITableViewDelegate {
@@ -40,7 +54,7 @@ extension EventListViewController: UITableViewDelegate {
 
 extension EventListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
