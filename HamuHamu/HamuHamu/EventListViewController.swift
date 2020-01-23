@@ -16,6 +16,8 @@ class EventListViewController: UIViewController {
         return tableView
     }()
     
+    var eventArr = [[String:Any]]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,11 +56,11 @@ extension EventListViewController: UITableViewDelegate {
 
 extension EventListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+        return eventArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
     }
     
     
