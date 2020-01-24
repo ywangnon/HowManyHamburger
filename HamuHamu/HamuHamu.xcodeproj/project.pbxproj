@@ -22,6 +22,7 @@
 		019902472351F047008BC24D /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 019902492351F047008BC24D /* File.strings */; };
 		019987C42394F7D500E3AFAD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 019987C32394F7D500E3AFAD /* GoogleService-Info.plist */; };
 		01AE0C1023D5ED2100701E59 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE0C0F23D5ED2100701E59 /* EventListViewController.swift */; };
+		01AE0C1223DB33A100701E59 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AE0C1123DB33A100701E59 /* EventTableViewCell.swift */; };
 		01AEA73323B4E90F005A7521 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AEA73223B4E90F005A7521 /* EventCell.swift */; };
 		01C500162369D5860085D670 /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C500152369D5860085D670 /* BrandViewController.swift */; };
 		01CB0F2320AF02BF00280A70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01CB0F2220AF02BF00280A70 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		0199024A2351F04B008BC24D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/File.strings; sourceTree = "<group>"; };
 		019987C32394F7D500E3AFAD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01AE0C0F23D5ED2100701E59 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		01AE0C1123DB33A100701E59 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		01AEA73223B4E90F005A7521 /* EventCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		01C500152369D5860085D670 /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
 		01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HamuHamu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 				01E619BC233CEA1100BD1DAF /* intro.gif */,
 				01CB0F2220AF02BF00280A70 /* AppDelegate.swift */,
 				01AE0C0F23D5ED2100701E59 /* EventListViewController.swift */,
+				01AE0C1123DB33A100701E59 /* EventTableViewCell.swift */,
 				01CB0F2420AF02BF00280A70 /* ViewController.swift */,
 				01C500152369D5860085D670 /* BrandViewController.swift */,
 				0132643E235316FD00D82169 /* CalorieViewController.swift */,
@@ -299,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AE0C1223DB33A100701E59 /* EventTableViewCell.swift in Sources */,
 				01CB0F2520AF02BF00280A70 /* ViewController.swift in Sources */,
 				01CB0F2320AF02BF00280A70 /* AppDelegate.swift in Sources */,
 				019902302350E1C8008BC24D /* HamburgerFranCell.swift in Sources */,
