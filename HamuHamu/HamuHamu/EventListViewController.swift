@@ -12,6 +12,7 @@ import Firebase
 class EventListViewController: UIViewController {
     var eventTableView: UITableView = {
         let tableView = UITableView()
+        tableView.register(EventTableViewCell, forCellReuseIdentifier: "eventCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
@@ -60,7 +61,8 @@ extension EventListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+        return cell
     }
     
     
