@@ -52,3 +52,24 @@ class EventTableViewCell: UITableViewCell {
     }
 
 }
+
+extension EventTableViewCell {
+    func setCell(_ title: String) {
+        
+    }
+    
+    func setAddSubViews() {
+        self.addSubviews([
+            self.brandLabel,
+            self.eventImgView,
+            self.eventTitleLabel,
+            self.eventStartDayLabel,
+            self.eventEndDayLabel
+        ])
+    }
+    
+    func setLayout() {
+        let safeArea = self.safeAreaLayoutGuide
+        
+    }
+}

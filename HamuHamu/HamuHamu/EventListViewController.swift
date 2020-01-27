@@ -12,7 +12,7 @@ import Firebase
 class EventListViewController: UIViewController {
     var eventTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(EventTableViewCell, forCellReuseIdentifier: "eventCell")
+        tableView.register(EventTableViewCell.self, forCellReuseIdentifier: "eventCell")
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
