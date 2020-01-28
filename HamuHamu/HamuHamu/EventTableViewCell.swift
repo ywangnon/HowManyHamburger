@@ -71,5 +71,9 @@ extension EventTableViewCell {
     func setLayout() {
         let safeArea = self.safeAreaLayoutGuide
         
+        NSLayoutConstraint.activate([
+            self.brandLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
+            self.brandLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
+        ])
     }
 }
