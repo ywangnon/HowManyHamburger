@@ -75,5 +75,12 @@ extension EventTableViewCell {
             self.brandLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 10),
             self.brandLabel.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 5),
         ])
+        
+        NSLayoutConstraint.activate([
+            self.eventImgView.topAnchor.constraint(equalTo: self.brandLabel.bottomAnchor, constant: 5),
+            self.eventImgView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
+            self.eventImgView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
+            self.eventImgView.heightAnchor.constraint(equalToConstant: 50)
+        ])
     }
 }
