@@ -87,5 +87,15 @@ extension EventTableViewCell {
             self.eventTitleLabel.topAnchor.constraint(equalTo: self.eventImgView.bottomAnchor, constant: 4),
             self.eventTitleLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8)
         ])
+        
+        NSLayoutConstraint.activate([
+            self.eventStartDayLabel.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor, constant: 8),
+            self.eventStartDayLabel.topAnchor.constraint(equalTo: self.eventStartDayLabel.bottomAnchor, constant: 8)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.eventEndDayLabel.leadingAnchor.constraint(equalTo: self.eventStartDayLabel.trailingAnchor),
+            self.eventEndDayLabel.centerYAnchor.constraint(equalTo: self.eventStartDayLabel.centerYAnchor)
+        ])
     }
 }
