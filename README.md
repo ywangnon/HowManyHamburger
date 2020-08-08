@@ -1,3 +1,3 @@
 # How many hamburgers can you eat?
 
-project change
+수정 -> 파싱 후 리스트로
