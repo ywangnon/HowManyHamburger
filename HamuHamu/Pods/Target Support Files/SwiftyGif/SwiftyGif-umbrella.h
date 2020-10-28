@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "SwiftyGif 2.h"
 #import "SwiftyGif.h"
 
 FOUNDATION_EXPORT double SwiftyGifVersionNumber;

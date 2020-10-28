@@ -37,6 +37,7 @@
 		01E619C3233EA2F300BD1DAF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619C2233EA2F300BD1DAF /* MenuCell.swift */; };
 		01E619C5233F163E00BD1DAF /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E619C4233F163E00BD1DAF /* NoticeViewController.swift */; };
 		01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F46889233A525800A1B4CA /* BrandCell.swift */; };
+		01FE0C652549A769007A6A46 /* Crawling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FE0C642549A769007A6A46 /* Crawling.swift */; };
 		80598ABE616455F8DC2CF48E /* Pods_HamuHamu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01C555D680D370FC28A77BAD /* Pods_HamuHamu.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		01E619C2233EA2F300BD1DAF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		01E619C4233F163E00BD1DAF /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		01F46889233A525800A1B4CA /* BrandCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandCell.swift; sourceTree = "<group>"; };
+		01FE0C642549A769007A6A46 /* Crawling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crawling.swift; sourceTree = "<group>"; };
 		A5F46ADB61BF449F26989E61 /* Pods-HamuHamu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.release.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.release.xcconfig"; sourceTree = "<group>"; };
 		C960CED6D3A298F6BB220917 /* Pods-HamuHamu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HamuHamu.debug.xcconfig"; path = "Target Support Files/Pods-HamuHamu/Pods-HamuHamu.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +151,7 @@
 				01E619BE233CED6200BD1DAF /* CommonMethod.swift */,
 				0132644023531C3600D82169 /* DBModel.swift */,
 				0132644423534DF500D82169 /* Calories.swift */,
+				01FE0C612549A747007A6A46 /* WebCrawling */,
 				019902492351F047008BC24D /* File.strings */,
 				01DBFF1D23BCE6F700ADCC99 /* InfoPlist.strings */,
 				01CB0F2620AF02BF00280A70 /* Main.storyboard */,
@@ -158,6 +161,14 @@
 				019987C32394F7D500E3AFAD /* GoogleService-Info.plist */,
 			);
 			path = HamuHamu;
+			sourceTree = "<group>";
+		};
+		01FE0C612549A747007A6A46 /* WebCrawling */ = {
+			isa = PBXGroup;
+			children = (
+				01FE0C642549A769007A6A46 /* Crawling.swift */,
+			);
+			path = WebCrawling;
 			sourceTree = "<group>";
 		};
 		262E0B8D5984B0217D61DF6B /* Pods */ = {
@@ -320,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01FE0C652549A769007A6A46 /* Crawling.swift in Sources */,
 				01AE0C1223DB33A100701E59 /* EventTableViewCell.swift in Sources */,
 				01CB0F2520AF02BF00280A70 /* ViewController.swift in Sources */,
 				01CB0F2320AF02BF00280A70 /* AppDelegate.swift in Sources */,

@@ -349,6 +349,7 @@ PODS:
   - Realm/Headers (10.1.0)
   - RealmSwift (10.1.0):
     - Realm (= 10.1.0)
+  - SwiftSoup (2.3.2)
   - SwiftyGif (5.3.0)
 
 DEPENDENCIES:
@@ -360,6 +361,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseFirestoreSwift
   - RealmSwift
+  - SwiftSoup
   - SwiftyGif
 
 SPEC REPOS:
@@ -387,6 +389,7 @@ SPEC REPOS:
     - PromisesObjC
     - Realm
     - RealmSwift
+    - SwiftSoup
     - SwiftyGif
 
 SPEC CHECKSUMS:
@@ -413,8 +416,9 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   Realm: 100df88a0faf5328f48477427e4b3e1a1598bae3
   RealmSwift: 725d1c10df64964b04aaa0058c19ce0f4b4c3f5a
+  SwiftSoup: f97bc4e988c7729d6457f9642f974c617a6e2510
   SwiftyGif: e466e86c660d343357ab944a819a101c4127cb40
 
-PODFILE CHECKSUM: 5dc71019e186c1a763f3fbce68e3000fe2c256b0
+PODFILE CHECKSUM: 255c26ccdcbc065613f13255c473c04396570737
 
 COCOAPODS: 1.9.1

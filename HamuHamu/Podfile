@@ -9,6 +9,7 @@ target 'HamuHamu' do
 
   pod 'SwiftyGif'
   pod 'RealmSwift'
+  pod 'SwiftSoup'
   pod 'Firebase/Analytics'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
