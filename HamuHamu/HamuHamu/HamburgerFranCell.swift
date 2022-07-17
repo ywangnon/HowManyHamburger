@@ -9,13 +9,6 @@
 import UIKit
 
 class HamburgerFranCell: UITableViewCell {
-//    var logoImgView: UIImageView = {
-//        let imgView = UIImageView()
-//        imgView.contentMode = .scaleAspectFit
-//        imgView.translatesAutoresizingMaskIntoConstraints = false
-//        return imgView
-//    }()
-    
     var bannerImgView: UIImageView = {
         let imgView = UIImageView()
         imgView.contentMode = .scaleToFill

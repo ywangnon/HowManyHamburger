@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01083838288061B00095BB89 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01083837288061B00095BB89 /* Network.swift */; };
 		013263FF2352BB6F00D82169 /* BrandImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013263FE2352BB6F00D82169 /* BrandImageCell.swift */; };
 		0132643F235316FD00D82169 /* CalorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132643E235316FD00D82169 /* CalorieViewController.swift */; };
 		0132644123531C3600D82169 /* DBModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0132644023531C3600D82169 /* DBModel.swift */; };
@@ -17,6 +18,9 @@
 		016910772309860C002A8265 /* DeveloperInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016910762309860C002A8265 /* DeveloperInfoViewController.swift */; };
 		016AC0512348F66500D853A4 /* FranchiseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016AC0502348F66500D853A4 /* FranchiseCell.swift */; };
 		0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172A3E722E8A9A800D2A67F /* EventWebView.swift */; };
+		018C039528805802008B6FC3 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C039428805802008B6FC3 /* UIColorExtension.swift */; };
+		018C03982880585E008B6FC3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C03972880585E008B6FC3 /* StringExtension.swift */; };
+		018C039A288058D7008B6FC3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C0399288058D7008B6FC3 /* UIViewExtension.swift */; };
 		019902302350E1C8008BC24D /* HamburgerFranCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199022F2350E1C8008BC24D /* HamburgerFranCell.swift */; };
 		019902322350F20E008BC24D /* FranDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019902312350F20E008BC24D /* FranDetailViewController.swift */; };
 		019902472351F047008BC24D /* File.strings in Resources */ = {isa = PBXBuildFile; fileRef = 019902492351F047008BC24D /* File.strings */; };
@@ -42,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01083837288061B00095BB89 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		013263FE2352BB6F00D82169 /* BrandImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandImageCell.swift; sourceTree = "<group>"; };
 		0132643E235316FD00D82169 /* CalorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalorieViewController.swift; sourceTree = "<group>"; };
 		0132644023531C3600D82169 /* DBModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBModel.swift; sourceTree = "<group>"; };
@@ -52,6 +57,9 @@
 		016910762309860C002A8265 /* DeveloperInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperInfoViewController.swift; sourceTree = "<group>"; };
 		016AC0502348F66500D853A4 /* FranchiseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranchiseCell.swift; sourceTree = "<group>"; };
 		0172A3E722E8A9A800D2A67F /* EventWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventWebView.swift; sourceTree = "<group>"; };
+		018C039428805802008B6FC3 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		018C03972880585E008B6FC3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		018C0399288058D7008B6FC3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		0199022F2350E1C8008BC24D /* HamburgerFranCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgerFranCell.swift; sourceTree = "<group>"; };
 		019902312350F20E008BC24D /* FranDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FranDetailViewController.swift; sourceTree = "<group>"; };
 		019902422351EE37008BC24D /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.strings; sourceTree = "<group>"; };
@@ -97,6 +105,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01083836288061930095BB89 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				01083837288061B00095BB89 /* Network.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		016910752309657D002A8265 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +120,45 @@
 				016910732309656C002A8265 /* EventSafariView.swift */,
 			);
 			path = WebView;
+			sourceTree = "<group>";
+		};
+		018C038F28805718008B6FC3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		018C03902880572B008B6FC3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		018C03912880573F008B6FC3 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				01E619BC233CEA1100BD1DAF /* intro.gif */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		018C039228805740008B6FC3 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		018C0393288057E1008B6FC3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				018C039428805802008B6FC3 /* UIColorExtension.swift */,
+				018C03972880585E008B6FC3 /* StringExtension.swift */,
+				018C0399288058D7008B6FC3 /* UIViewExtension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		01CB0F1620AF02BF00280A70 = {
@@ -128,7 +183,12 @@
 			isa = PBXGroup;
 			children = (
 				01DF53782333D65C00D84FAB /* HamuHamu.entitlements */,
-				01E619BC233CEA1100BD1DAF /* intro.gif */,
+				01083836288061930095BB89 /* Util */,
+				018C0393288057E1008B6FC3 /* Extension */,
+				018C039228805740008B6FC3 /* Controller */,
+				018C03902880572B008B6FC3 /* Model */,
+				018C038F28805718008B6FC3 /* View */,
+				018C03912880573F008B6FC3 /* Resource */,
 				01CB0F2220AF02BF00280A70 /* AppDelegate.swift */,
 				01AE0C0F23D5ED2100701E59 /* EventListViewController.swift */,
 				01AE0C1123DB33A100701E59 /* EventTableViewCell.swift */,
@@ -346,14 +406,18 @@
 				01C500162369D5860085D670 /* BrandViewController.swift in Sources */,
 				01E619C1233E84E100BD1DAF /* SettingViewController.swift in Sources */,
 				0172A3E822E8A9A800D2A67F /* EventWebView.swift in Sources */,
+				018C039A288058D7008B6FC3 /* UIViewExtension.swift in Sources */,
 				01AEA73323B4E90F005A7521 /* EventCell.swift in Sources */,
 				01326443235321AE00D82169 /* CalorieCell.swift in Sources */,
+				018C039528805802008B6FC3 /* UIColorExtension.swift in Sources */,
 				01AE0C1023D5ED2100701E59 /* EventListViewController.swift in Sources */,
 				0132643F235316FD00D82169 /* CalorieViewController.swift in Sources */,
 				016910742309656C002A8265 /* EventSafariView.swift in Sources */,
 				016AC0512348F66500D853A4 /* FranchiseCell.swift in Sources */,
 				01E619BF233CED6200BD1DAF /* CommonMethod.swift in Sources */,
 				01F4688A233A525800A1B4CA /* BrandCell.swift in Sources */,
+				018C03982880585E008B6FC3 /* StringExtension.swift in Sources */,
+				01083838288061B00095BB89 /* Network.swift in Sources */,
 				0132644123531C3600D82169 /* DBModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
