@@ -16,9 +16,9 @@ struct HamburgerNetwork {
     }
 }
 
-extension HamburgerNetwork {
-    struct StoreURL {
-        static let burgerking
-        static let
-    }
-}
+//extension HamburgerNetwork {
+//    struct StoreURL {
+//        static let burgerking
+//        static let
+//    }
+//}

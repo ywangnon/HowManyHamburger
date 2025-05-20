@@ -28,11 +28,12 @@ public class Crawling {
     }
     
     func getEvent() -> String {
-        let doc: Document = try SwiftSoup.parse(htmlBody)
-        
-        let p: Element = try doc.select("p")
-        print(p)
+//        let doc: Document = try SwiftSoup.parse(htmlBody)
+//        
+//        let p: Element = try doc.select("p")
+//        print(p)
         
         // 이미지, 제목, 내용, 링크(링크는 굳이 넣지 않아도 된다.)
+        return ""
     }
 }

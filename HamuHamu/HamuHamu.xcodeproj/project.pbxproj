@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -122,33 +122,12 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
-		018C038F28805718008B6FC3 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		018C03902880572B008B6FC3 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		018C03912880573F008B6FC3 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				01E619BC233CEA1100BD1DAF /* intro.gif */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		018C039228805740008B6FC3 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		018C0393288057E1008B6FC3 /* Extension */ = {
@@ -185,9 +164,6 @@
 				01DF53782333D65C00D84FAB /* HamuHamu.entitlements */,
 				01083836288061930095BB89 /* Util */,
 				018C0393288057E1008B6FC3 /* Extension */,
-				018C039228805740008B6FC3 /* Controller */,
-				018C03902880572B008B6FC3 /* Model */,
-				018C038F28805718008B6FC3 /* View */,
 				018C03912880573F008B6FC3 /* Resource */,
 				01CB0F2220AF02BF00280A70 /* AppDelegate.swift */,
 				01AE0C0F23D5ED2100701E59 /* EventListViewController.swift */,
@@ -572,6 +548,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -594,6 +571,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XP44KJ6JB3;
 				INFOPLIST_FILE = HamuHamu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
